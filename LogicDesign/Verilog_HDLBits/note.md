@@ -100,7 +100,7 @@
 
 10. 对于译码器的简洁写法
 
-    ![Module_shift8](.\img\Module_shift8.png)
+    ![Module_shift8](img\Module_shift8.png)
 
     ```verilog
     module top_module (input clk,
