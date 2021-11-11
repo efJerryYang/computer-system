@@ -31,6 +31,7 @@
    end
    
    // 这种循环，本质上是代码的嵌入，是建议的做法
+   // This is not a procedure block, so use assign statement
    generate
        genvar i;
        for (i=0; i<8; i = i+1) begin: my_block_name
@@ -120,7 +121,7 @@
 11. 全加器
 
     ```verilog
-    module add1 (input a, input b, input cin,   output sum, output cout);
+    module add1 (input a, input b, input cin, output sum, output cout);
         assign sum  = a ^ b ^ cin;
         assign cout = (a&b)|((a ^ b)& cin);
         // assign cout = (a&b)|((a | b)& cin); // or coded like this
@@ -236,7 +237,7 @@
 
     [![Always if2.png](https://hdlbits.01xz.net/mw/images/d/d1/Always_if2.png)](https://hdlbits.01xz.net/wiki/File:Always_if2.png)
 
-    ```
+    ```verilog
     always @(*) begin
         if (cpu_overheated)
            shut_off_computer = 1;
@@ -247,4 +248,175 @@
            keep_driving = ~gas_tank_empty;
     end
     ```
+    
+    my code here
+    
+    ```verilog
+    // synthesis verilog_input_version verilog_2001
+    module top_module (input cpu_overheated,
+                       output reg shut_off_computer,
+                       input arrived,
+                       input gas_tank_empty,
+                       output reg keep_driving);     //
+        
+        always @(*) begin
+            shut_off_computer = cpu_overheated ? 1'b1 : 1'b0;
+            keep_driving      = (~arrived) ? ~gas_tank_empty : 1'b0;
+        end
+        
+    endmodule
+    ```
+    
+16. **Case statement**
 
+    Case statements in Verilog are nearly equivalent to a sequence of if-elseif-else that compares one expression to a list of others. Its syntax and functionality differs from the `switch` statement in C.
+
+    ```verilog
+    always @(*) begin     // This is a combinational circuit
+        case (in)
+          1'b1: begin 
+                   out = 1'b1;  // begin-end if >1 statement
+                end
+          1'b0: out = 1'b0;
+          default: out = 1'bx;
+        endcase
+    end
+    ```
+
+    - The case statement begins with `case` and each "case item" ends with a colon. There is no "switch".
+    - Each case item can execute *exactly one* statement. This makes the "break" used in C unnecessary. But this means that if you need more than one statement, you must use `begin ... end`.
+    - Duplicate (and partially overlapping) case items are permitted. The first one that matches is used. C does not allow duplicate case items.
+
+17. casez
+
+    ```verilog
+    // synthesis verilog_input_version verilog_2001
+    module top_module (
+        input [7:0] in,
+        output reg [2:0] pos  );
+        
+        always@(*)begin
+            pos = 3'b0;
+            casez(in)
+                8'bzzzzzzz1:pos = 3'd0;
+                8'bzzzzzz10:pos = 3'd1;
+                8'bzzzzz10z:pos = 3'd2;
+                8'bzzzz1000:pos = 3'd3;
+                8'bzzz100zz:pos = 3'd4;
+                8'bzz10zz00:pos = 3'd5;
+                8'bz1zzz000:pos = 3'd6;
+                8'b10000000:pos = 3'd7;
+            endcase
+        end
+    endmodule
+    ```
+
+18. **Reminder:** The logic synthesizer generates a combinational circuit that *behaves* equivalently to what the code describes. Hardware does not "execute" the lines of code in sequence.
+
+    > 那么，17的写法就有问题，并行会导致同一位置被多个值赋值。为什么能通过？我的问题，还是样例的输入不够？
+
+19. **Conditional**
+
+    Verilog has a ternary conditional operator ( ? : ) much like C:
+
+    ```verilog
+    (condition ? if_true : if_false)
+    ```
+
+    This can be used to choose one of two values based on *condition* (a mux!) on one line, without using an if-then inside a combinational always block.
+
+    Examples:
+
+    ```verilog
+    (0 ? 3 : 5)     // This is 5 because the condition is false.
+    (sel ? b : a)   // A 2-to-1 multiplexer between a and b selected by sel.
+    
+    always @(posedge clk)         // A T-flip-flop.
+      q <= toggle ? ~q : q;
+    
+    always @(*)                   // State transition logic for a one-input FSM
+      case (state)
+        A: next = w ? B : A;
+        B: next = w ? A : B;
+      endcase
+    
+    assign out = ena ? q : 1'bz;  // A tri-state buffer
+    
+    ((sel[1:0] == 2'h0) ? a :     // A 3-to-1 mux
+     (sel[1:0] == 2'h1) ? b :
+                          c )
+    ```
+
+20. D flip-flop 
+
+    ```verilog
+    module top_module (
+        input clk,    // Clocks are used in sequential circuits
+        input d,
+        output reg q );//
+    
+        always@(posedge clk) q <=d; // copy d to q at every positive edge of clk
+    endmodule
+    
+    // Undefined simulation behaviour can occur if there is more than one edge-triggered
+    // always block and blocking assignment is used. Which always block is simulated first?
+    
+    ```
+
+21. 复位
+
+    ```verilog
+    // 同步复位
+    module top_module (
+        input clk,
+        input reset,
+        input [7:0] d,
+        output [7:0] q
+    );
+        always@(negedge clk)
+            q <= reset ? 8'h34 : d;
+    endmodule
+    
+    // 异步复位
+    module top_module (
+        input clk,
+        input areset,   // active high asynchronous reset
+        input [7:0] d,
+        output [7:0] q
+    );
+        always@(posedge clk, posedge areset)
+            q <= areset ? 8'b0 : d;
+    
+    endmodule
+    
+    
+    	// In Verilog, the sensitivity list looks strange. The FF's reset is sensitive to the
+    	// *level* of areset, so why does using "posedge areset" work?
+    	// To see why it works, consider the truth table for all events that change the input 
+    	// signals, assuming clk and areset do not switch at precisely the same time:
+    	
+    	//  clk		areset		output
+    	//   x		 0->1		q <= 0; (because areset = 1)
+    	//   x		 1->0		no change (always block not triggered)
+    	//  0->1	   0		q <= d; (not resetting)
+    	//  0->1	   1		q <= 0; (still resetting, q was 0 before too)
+    	//  1->0	   x		no change (always block not triggered)
+    	
+    
+    ```
+
+22. counter
+
+    ```verilog
+    module top_module (
+        input clk,
+        input reset,      // Synchronous active-high reset
+        output [3:0] q);
+    
+        initial q = 0; // 不是必要的
+        always@(posedge clk)
+            q <= reset ? 4'b0 : q + 1;
+    endmodule
+    ```
+
+    
