@@ -1,0 +1,105 @@
+site_name: 数字逻辑设计（2021秋季） | 哈工大（深圳）
+copyright: 'Copyright &copy; 2020 - 2021 哈尔滨工业大学（深圳）'
+repo_name: 'HITSZ-DIGLogic2021-Course'
+repo_url: 'https://gitee.com/hitsz-cslab/diglogic'
+
+markdown_extensions:
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - admonition
+  - mdx_math:
+      enable_dollar_delimiter: True
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+  # - mathjaxhelper.js
+
+
+theme:
+  language: 'zh'
+  name: material
+  features:
+    - navigation.tabs
+  icon:
+    logo: fontawesome/solid/microchip
+    repo: fontawesome/brands/git-alt
+    # favicon: fontawesome/solid/microchip
+  palette:
+    primary: 'Greep'
+    accent: 'Greep'
+nav:
+  - 实验介绍: 
+    - 课程概况: index.md
+    - 作业提交说明: ojguide.md
+    - Verilog代码规范: codingstyle/codingstyle.md
+  - Mnisys与Vivado介绍: 
+    - Minisys开发板介绍: vivado/minisys.md
+    - Minisys开发板管脚映射: map.md
+    - Vivado的介绍: vivado/overview.md
+    - 基于Vivado的开发流程:
+       - 建立工程: vivado/s1.md
+       - 编写设计文件: vivado/s2.md
+       - 添加设计文件: vivado/s3.md
+       - 编写仿真文件: vivado/s4.md
+       - 添加仿真文件: vivado/s5.md
+       - 进行仿真: vivado/s6.md
+       - 编写约束文件: vivado/s7.md
+       - 添加约束文件: vivado/s8.md
+       - 综合、实现和生成比特流: vivado/s9.md
+       - 开发板验证: vivado/s10.md
+    - Vivado下载链接: download/vivado.md
+  - 实验1 3-8译码器实现:
+    - 实验目的: lab1/s1.md
+    - 实验内容: lab1/s2.md
+    - 实验原理: lab1/s3.md
+    - 实验步骤: lab1/s4.md
+    - 验收要求: lab1/s5.md
+  - 实验2 计数器设计:
+    - 实验目的: lab2/s1.md
+    - 实验内容: lab2/s2.md
+    - 实验原理: lab2/s3.md
+    - 实验步骤: lab2/s4.md
+    - 验收要求: lab2/s5.md
+  - 实验3 利用IP设计电路:
+    - 实验目的: lab3/s1.md
+    - 实验内容: lab3/s2.md
+    - 实验原理: 
+       - IP核概念: lab3/s3-1.md
+       - 时钟IP: lab3/s3-2.md
+       - 存储器IP: lab3/s3-3.md
+       - 基于IP核的LED灯控制: lab3/s3-4.md
+    - 实验步骤: lab3/s4.md
+    - 验收要求: lab3/s5.md
+  #- 实验4 数码管控制器设计:
+  #  - 实验目的: lab4/s1.md
+  #  - 实验内容: lab4/s2.md
+  #  - 实验原理: lab4/s3.md
+  #  - 实验步骤: lab4/s4.md
+  #  - 验收要求: lab4/s5.md
+  #- 实验5 序列检测器设计:
+  #  - 实验目的: lab5/s1.md
+  #  - 实验内容: lab5/s2.md
+  #  - 实验原理: lab5/s3.md
+  #  - 实验步骤: lab5/s4.md
+  #  - 验收要求: lab5/s5.md
+  #- 实验6 十六进制计算器设计:
+  #  - 实验目的: lab6/s1.md
+  #  - 实验内容: lab6/s2.md
+  #  - 实验原理: lab6/s3.md
+  #  - 实验步骤: lab6/s4.md
+  #  - 验收要求: lab6/s5.md
