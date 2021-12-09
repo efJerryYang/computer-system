@@ -1,0 +1,1 @@
+![sim_fig](C:\Users\JerryYang\Documents\GitHub\ComputerSystem\LogicDesign\Experiment\Exp_Packages\Exp3\实验3 利用IP设计电路\upload_file\sim_fig.jpg)
