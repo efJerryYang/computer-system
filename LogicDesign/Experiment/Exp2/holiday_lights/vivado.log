@@ -1,0 +1,39 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun Nov 14 10:29:06 2021
+# Process ID: 13796
+# Current directory: E:/JerryYang/holiday_lights
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1920 E:\JerryYang\holiday_lights\holiday_lights.xpr
+# Log file: E:/JerryYang/holiday_lights/vivado.log
+# Journal file: E:/JerryYang/holiday_lights\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/JerryYang/holiday_lights/holiday_lights.xpr
+INFO: [Project 1-313] Project file moved from 'C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp2/holiday_lights' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+open_hw
+update_compile_order -fileset sources_1
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/Port_#0005.Hub_#0001
+set_property PROGRAM.FILE {E:/JerryYang/holiday_lights/holiday_lights.runs/impl_1/holiday_lights.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {E:/JerryYang/holiday_lights/holiday_lights.runs/impl_1/holiday_lights.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 1730.332 ; gain = 0.152
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 14 10:30:16 2021...
