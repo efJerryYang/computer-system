@@ -1,0 +1,12 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+led_en signal wrong at index 00000006
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 105 ns : File "C:/Users/Administrator/Desktop/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+led_en signal wrong at index 00000007
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 115 ns : File "C:/Users/Administrator/Desktop/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104

@@ -1,0 +1,1588 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Dec  4 18:46:23 2021
+# Process ID: 5140
+# Current directory: D:/JerryYang/led_display_ctrl
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9640 D:\JerryYang\led_display_ctrl\led_display_ctrl.xpr
+# Log file: D:/JerryYang/led_display_ctrl/vivado.log
+# Journal file: D:/JerryYang/led_display_ctrl\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/JerryYang/led_display_ctrl/led_display_ctrl.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+update_compile_order -fileset sources_1
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj testbench_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto a4bfb99f767248869df8c79573d19a06 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testbench_behav -key {Behavioral:sim_1:Functional:testbench} -tclbatch {testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+led_c*/led_dp signal wrong at index 00000166
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 3625 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 00000206
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 5225 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Sat Dec  4 19:08:04 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 19:08:04 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.3
+  **** Build date : Dec  7 2018-00:40:27
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module led_display_ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto a4bfb99f767248869df8c79573d19a06 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" Line 1. Module led_display_ctrl doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.led_display_ctrl
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testbench_behav -key {Behavioral:sim_1:Functional:testbench} -tclbatch {testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+led_c*/led_dp signal wrong at index 000005e9
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 15175 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 000005ea
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 15185 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 000005eb
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 15195 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 000005ec
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 15205 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 000005ed
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 15215 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 00000689
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 16775 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000068a
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 16785 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000068b
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 16795 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000068c
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 16805 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000068d
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 16815 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module led_display_ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto a4bfb99f767248869df8c79573d19a06 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" Line 1. Module led_display_ctrl doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.led_display_ctrl
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testbench_behav -key {Behavioral:sim_1:Functional:testbench} -tclbatch {testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+led_c*/led_dp signal wrong at index 000005e9
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 15175 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 000005ea
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 15185 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 000005eb
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 15195 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 000005ec
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 15205 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 000005ed
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 15215 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 00000689
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 16775 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000068a
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 16785 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000068b
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 16795 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000068c
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 16805 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000068d
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 16815 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 00000729
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 18375 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000072a
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 18385 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000072b
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 18395 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000072c
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 18405 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000072d
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 18415 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 00001039
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 41575 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000103a
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 41585 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000103b
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 41595 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000103c
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 41605 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000103d
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 41615 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 000010d9
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 43175 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 000010da
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 43185 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 000010db
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 43195 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 000010dc
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 43205 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 000010dd
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 43215 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 00001179
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 44775 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000117a
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 44785 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000117b
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 44795 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000117c
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 44805 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 0000117d
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 44815 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+run 1000 us
+led_c*/led_dp signal wrong at index 00001a89
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 67975 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module led_display_ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto a4bfb99f767248869df8c79573d19a06 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" Line 1. Module led_display_ctrl doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.led_display_ctrl
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testbench_behav -key {Behavioral:sim_1:Functional:testbench} -tclbatch {testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+led_c*/led_dp signal wrong at index 000005e9
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 15175 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 111
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module led_display_ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto a4bfb99f767248869df8c79573d19a06 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" Line 1. Module led_display_ctrl doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.led_display_ctrl
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testbench_behav -key {Behavioral:sim_1:Functional:testbench} -tclbatch {testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+index 0000fffe finished
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  == 
+Test end!
+----PASS!!!
+$finish called at time : 655385 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 96
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Sat Dec  4 19:49:28 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 19:49:28 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Sat Dec  4 19:53:14 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 19:53:14 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7a100tfgg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 2864.262 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 2864.262 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2864.262 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:20 ; elapsed = 00:00:18 . Memory (MB): peak = 3003.336 ; gain = 971.293
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module led_display_ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto a4bfb99f767248869df8c79573d19a06 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" Line 1. Module led_display_ctrl doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.led_display_ctrl
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testbench_behav -key {Behavioral:sim_1:Functional:testbench} -tclbatch {testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+index 0000fffe finished
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  == 
+Test end!
+----PASS!!!
+$finish called at time : 655385 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 96
+launch_simulation -mode post-implementation -type timing
+INFO: [Vivado 12-5682] Launching post-implementation timing simulation in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/impl/timing/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-31] Writing simulation netlist file for design 'impl_1'...
+INFO: [SIM-utils-32] write_verilog -mode timesim -nolib -sdf_anno true -force -file "D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/impl/timing/xsim/testbench_time_impl.v"
+INFO: [SIM-utils-34] Writing SDF file...
+INFO: [SIM-utils-35] write_sdf -mode timesim -process_corner slow -force -file "D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/impl/timing/xsim/testbench_time_impl.sdf"
+INFO: [SIM-utils-36] Netlist generated:D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/impl/timing/xsim/testbench_time_impl.v
+INFO: [SIM-utils-37] SDF generated:D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/impl/timing/xsim/testbench_time_impl.sdf
+INFO: [SIM-utils-54] Inspecting design source files for 'testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/impl/timing/xsim'
+"xvlog --incr --relax -prj testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/impl/timing/xsim/testbench_time_impl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module led_display_ctrl
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/impl/timing/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto a4bfb99f767248869df8c79573d19a06 --incr --debug typical --relax --mt 2 --maxdelay -L xil_defaultlib -L simprims_ver -L secureip --snapshot testbench_time_impl -transport_int_delays -pulse_r 0 -pulse_int_r 0 -pulse_e 0 -pulse_int_e 0 xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+INFO: [XSIM 43-3451] SDF backannotation process started with SDF file "testbench_time_impl.sdf", for root module "testbench/u_led_display_ctrl".
+INFO: [XSIM 43-3452] SDF backannotation was successful for SDF file "testbench_time_impl.sdf", for root module "testbench/u_led_display_ctrl".
+Time Resolution for simulation is 1ps
+Compiling module simprims_ver.IBUF
+Compiling module simprims_ver.BUFG
+Compiling module simprims_ver.OBUF
+Compiling module simprims_ver.x_lut1_mux2
+Compiling module simprims_ver.LUT1
+Compiling module simprims_ver.FDPE_default
+Compiling module simprims_ver.FDCE_default
+Compiling module xil_defaultlib.led_display_ctrl
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_time_impl
+
+****** Webtalk v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/impl/timing/xsim/xsim.dir/testbench_time_impl/webtalk/xsim_webtalk.tcl -notrace
+webtalk_transmit: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 83.016 ; gain = 1.297
+INFO: [Common 17-206] Exiting Webtalk at Sat Dec  4 19:58:08 2021...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 3183.176 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/impl/timing/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testbench_time_impl -key {Post-Implementation:sim_1:Timing:testbench} -tclbatch {testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+led_en signal wrong at index 00000006
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 105 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_time_impl' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 3183.176 ; gain = 0.000
+run 1000 us
+led_en signal wrong at index 00000007
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 115 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+launch_simulation -mode post-synthesis -type timing
+INFO: [Vivado 12-5682] Launching post-synthesis timing simulation in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/synth/timing/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a100tfgg484-1
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc]
+WARNING: [Vivado 12-584] No ports matched 'led[15]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:5]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:5]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[14]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:6]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:6]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[13]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:7]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:7]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[12]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:8]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:8]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[11]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:9]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:9]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[10]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:10]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[9]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:11]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:11]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[8]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:12]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:12]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[7]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:13]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:13]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[6]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:14]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:14]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[5]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:15]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:15]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[4]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:16]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:16]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[3]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:17]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:17]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[2]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[1]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:19]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:19]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[0]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:20]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:20]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'switch[2]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:21]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:21]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'switch[1]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:22]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:22]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'switch[0]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:23]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:23]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'enable[2]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:24]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:24]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'enable[1]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:25]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:25]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'enable[0]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:26]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:26]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'enable[2]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:48]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:48]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'enable[1]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:49]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:49]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'enable[0]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:50]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:50]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'switch[2]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:51]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:51]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'switch[1]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:52]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:52]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'switch[0]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:53]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:53]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[15]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:55]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:55]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[14]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:56]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:56]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[13]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:57]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:57]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[12]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:58]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:58]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[11]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:59]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:59]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[10]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:60]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:60]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[9]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:61]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:61]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[8]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:62]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:62]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[7]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:63]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:63]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[6]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:64]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:64]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[5]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:65]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:65]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[4]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:66]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:66]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[3]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:67]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:67]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[2]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:68]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:68]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[1]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:69]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:69]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[0]'. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:70]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc:70]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/constrs_1/imports/JerryYang/lab4.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3207.230 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [SIM-utils-24] Writing simulation netlist file for design 'synth_1'...
+INFO: [SIM-utils-25] write_verilog -mode timesim -nolib -sdf_anno true -force -file "D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/synth/timing/xsim/testbench_time_synth.v"
+INFO: [SIM-utils-27] Writing SDF file...
+INFO: [SIM-utils-28] write_sdf -mode timesim -process_corner slow -force -file "D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/synth/timing/xsim/testbench_time_synth.sdf"
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [Common 17-344] 'write_sdf' was cancelled
+INFO: [Vivado 12-5357] 'setup' step aborted
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+launch_simulation -mode post-synthesis -type functional
+INFO: [Vivado 12-5682] Launching post-synthesis functional simulation in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/synth/func/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-24] Writing simulation netlist file for design 'synth_1'...
+INFO: [SIM-utils-25] write_verilog -mode funcsim -nolib -force -file "D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/synth/func/xsim/testbench_func_synth.v"
+INFO: [SIM-utils-36] Netlist generated:D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/synth/func/xsim/testbench_func_synth.v
+INFO: [SIM-utils-54] Inspecting design source files for 'testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/synth/func/xsim'
+"xvlog --incr --relax -prj testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/synth/func/xsim/testbench_func_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module led_display_ctrl
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/synth/func/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto a4bfb99f767248869df8c79573d19a06 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L secureip --snapshot testbench_func_synth xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.BUFG
+Compiling module unisims_ver.OBUF
+Compiling module unisims_ver.x_lut1_mux2
+Compiling module unisims_ver.LUT1
+Compiling module unisims_ver.FDPE_default
+Compiling module unisims_ver.FDCE_default
+Compiling module xil_defaultlib.led_display_ctrl
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_func_synth
+
+****** Webtalk v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/synth/func/xsim/xsim.dir/testbench_func_synth/webtalk/xsim_webtalk.tcl -notrace
+webtalk_transmit: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 83.008 ; gain = 0.859
+INFO: [Common 17-206] Exiting Webtalk at Sat Dec  4 20:01:14 2021...
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 3387.398 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/synth/func/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testbench_func_synth -key {Post-Synthesis:sim_1:Functional:testbench} -tclbatch {testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+led_en signal wrong at index 00000006
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 105 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_func_synth' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 3401.473 ; gain = 14.109
+run 1000 us
+led_en signal wrong at index 00000007
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 115 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+run 1000 us
+led_en signal wrong at index 00000008
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 125 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+run 1000 us
+led_en signal wrong at index 00000009
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 135 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+run 1000 us
+led_en signal wrong at index 0000000a
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 145 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+run 1000 us
+led_en signal wrong at index 0000000b
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 155 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+run 1000 us
+led_en signal wrong at index 0000000c
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 165 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+run 1000 us
+led_en signal wrong at index 0000000d
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 175 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+run 1000 us
+led_en signal wrong at index 0000000e
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 185 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+run 1000 us
+led_en signal wrong at index 0000000f
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 195 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+run all
+led_en signal wrong at index 00000010
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 205 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 3401.473 ; gain = 0.000
+current_sim simulation_7
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 3401.473 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module led_display_ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto a4bfb99f767248869df8c79573d19a06 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" Line 1. Module led_display_ctrl doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.led_display_ctrl
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testbench_behav -key {Behavioral:sim_1:Functional:testbench} -tclbatch {testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+index 0000fffe finished
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  == 
+Test end!
+----PASS!!!
+$finish called at time : 655385 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 96
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sat Dec  4 20:04:20 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 20:04:20 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sat Dec  4 20:07:01 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 20:07:01 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/1234-tulA
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sat Dec  4 20:11:23 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 20:11:23 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module led_display_ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto a4bfb99f767248869df8c79573d19a06 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" Line 1. Module led_display_ctrl doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.led_display_ctrl
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testbench_behav -key {Behavioral:sim_1:Functional:testbench} -tclbatch {testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+index 0000fffe finished
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  == 
+Test end!
+----PASS!!!
+$finish called at time : 655385 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 96
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sat Dec  4 20:16:05 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 20:16:05 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module led_display_ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto a4bfb99f767248869df8c79573d19a06 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" Line 1. Module led_display_ctrl doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.led_display_ctrl
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testbench_behav -key {Behavioral:sim_1:Functional:testbench} -tclbatch {testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+index 0000fffe finished
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  == 
+Test end!
+----PASS!!!
+$finish called at time : 655385 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 96
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module led_display_ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto a4bfb99f767248869df8c79573d19a06 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" Line 1. Module led_display_ctrl doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.led_display_ctrl
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testbench_behav -key {Behavioral:sim_1:Functional:testbench} -tclbatch {testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run 1000 us
+index 0000fffe finished
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  == 
+Test end!
+----PASS!!!
+$finish called at time : 655385 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 96
+run 1000 us
+index 0000fffe finished
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  == 
+Test end!
+----PASS!!!
+$finish called at time : 1310755 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 96
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'testbench' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module led_display_ctrl
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto a4bfb99f767248869df8c79573d19a06 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sources_1/imports/JerryYang/led_display_ctrl.v" Line 1. Module led_display_ctrl doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.led_display_ctrl
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/JerryYang/led_display_ctrl/led_display_ctrl.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testbench_behav -key {Behavioral:sim_1:Functional:testbench} -tclbatch {testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# log_wave -r /
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 3401.473 ; gain = 0.000
+run 1000 us
+index 0000fffe finished
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  == 
+Test end!
+----PASS!!!
+$finish called at time : 655385 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 96
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sat Dec  4 20:32:01 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 20:32:01 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sat Dec  4 20:33:49 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 20:33:49 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sat Dec  4 20:36:08 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 20:36:08 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sat Dec  4 20:38:46 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 20:38:46 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sat Dec  4 20:40:58 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 20:40:58 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+reset_run impl_1
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sat Dec  4 20:42:29 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 20:42:29 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sat Dec  4 20:48:18 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 20:48:18 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+WARNING: [Project 1-478] Design 'synth_1' is stale and will not be used when launching 'impl_1'
+[Sat Dec  4 20:50:33 2021] Launched synth_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/synth_1/runme.log
+[Sat Dec  4 20:50:33 2021] Launched impl_1...
+Run output will be captured here: D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {D:/JerryYang/led_display_ctrl/led_display_ctrl.runs/impl_1/led_display_ctrl.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Dec  4 20:59:30 2021...

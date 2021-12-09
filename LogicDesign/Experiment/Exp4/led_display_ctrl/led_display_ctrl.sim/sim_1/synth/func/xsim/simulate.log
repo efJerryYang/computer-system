@@ -1,0 +1,57 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+led_en signal wrong at index 00000006
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 105 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+led_en signal wrong at index 00000007
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 115 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+led_en signal wrong at index 00000008
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 125 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+led_en signal wrong at index 00000009
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 135 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+led_en signal wrong at index 0000000a
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 145 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+led_en signal wrong at index 0000000b
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 155 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+led_en signal wrong at index 0000000c
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 165 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+led_en signal wrong at index 0000000d
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 175 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+led_en signal wrong at index 0000000e
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 185 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+led_en signal wrong at index 0000000f
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 195 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
+led_en signal wrong at index 00000010
+ ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  ==  = 
+Test end!
+----FAIL!!!
+$finish called at time : 205 ns : File "D:/JerryYang/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" Line 104
