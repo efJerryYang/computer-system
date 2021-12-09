@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../memory_w_r.srcs/sources_1/ip/clk_div" \
+"../../../../memory_w_r.srcs/sources_1/ip/led_mem/sim/led_mem.v" \
+"../../../../memory_w_r.srcs/sources_1/ip/clk_div/clk_div_clk_wiz.v" \
+"../../../../memory_w_r.srcs/sources_1/ip/clk_div/clk_div.v" \
+"../../../../memory_w_r.srcs/sources_1/imports/Exp3/clk_div_final.v" \
+"../../../../memory_w_r.srcs/sources_1/imports/Exp3/memory_w_r.v" \
+"../../../../memory_w_r.srcs/sources_1/imports/Exp3/state_work.v" \
+"../../../../memory_w_r.srcs/sources_1/imports/Exp3/memory_top.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

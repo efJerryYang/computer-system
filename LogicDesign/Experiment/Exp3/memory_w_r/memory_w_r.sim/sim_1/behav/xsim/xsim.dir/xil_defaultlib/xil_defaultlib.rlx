@@ -1,0 +1,11 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,
+C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sim_1/imports/实验3 利用IP设计电路/testbench.v,1638690689,verilog,,,,testbench,,,../../../../memory_w_r.srcs/sources_1/ip/clk_div,,,,,
+C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/imports/实验3 利用IP设计电路/memory_top.v,1638694899,verilog,,C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/new/memory_w_r.v,,memory_top,,,../../../../memory_w_r.srcs/sources_1/ip/clk_div,,,,,
+C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/clk_div/clk_div.v,1638690373,verilog,,C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/imports/实验3 利用IP设计电路/memory_top.v,,clk_div,,,../../../../memory_w_r.srcs/sources_1/ip/clk_div,,,,,
+C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/clk_div/clk_div_clk_wiz.v,1638690373,verilog,,C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/clk_div/clk_div.v,,clk_div_clk_wiz,,,../../../../memory_w_r.srcs/sources_1/ip/clk_div,,,,,
+C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/led_mem/sim/led_mem.v,1638690443,verilog,,C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/clk_div/clk_div_clk_wiz.v,,led_mem,,,../../../../memory_w_r.srcs/sources_1/ip/clk_div,,,,,
+C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/new/memory_w_r.v,1638699121,verilog,,C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sim_1/imports/实验3 利用IP设计电路/testbench.v,,memory_w_r,,,../../../../memory_w_r.srcs/sources_1/ip/clk_div,,,,,
