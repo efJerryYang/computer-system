@@ -74,8 +74,8 @@ set rc [catch {
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
   add_files -quiet C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.runs/synth_1/memory_top.dcp
-  read_ip -quiet c:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/clk_div/clk_div.xci
-  read_ip -quiet c:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/led_mem/led_mem.xci
+  read_ip -quiet C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/clk_div/clk_div.xci
+  read_ip -quiet C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/led_mem/led_mem.xci
   read_xdc C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/constrs_1/imports/Exp4/lab_general.xdc
   link_design -top memory_top -part xc7a100tfgg484-1
   close_msg_db -file init_design.pb

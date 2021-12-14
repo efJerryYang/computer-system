@@ -20,7 +20,8 @@ module memory_top (input wire clk,
     );
     
     memory_w_r u_memory_w_r (
-    .clk_in(clk_20mhz),
+    .clk_20mhz(clk_20mhz),
+    .clk(clk),
     .locked(locked),
     .rst(rst),
     .button(button),
@@ -40,17 +41,14 @@ module memory_top (input wire clk,
     .dina(data_in),    // input wire [15 : 0] dina
     .douta(data_out)  // output wire [15 : 0] douta
     );
-    always @(posedge clk_fnl or posedge rst) begin
-        if (rst)
-            flag <= 0;
-        else if (data_out == {16{1'b1}})
-            flag <= 1;
-        else
-            flag <= flag;
-    end
     
-    assign led = 
-    state == 2 &&  flag ? data_out :
-    state == 2 && !flag ? 16'b0    :
-    16'b0;
+    always @(posedge clk_fnl or posedge rst) begin
+        if (rst || !(wea ^ ena))
+            flag <= 0;
+        else
+            flag <= 1;
+    end
+    assign led = (state == 2 && flag) ? data_out : 16'b0;
+
 endmodule
+

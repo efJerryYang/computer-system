@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Sun Dec  5 18:21:19 2021
+| Date         : Mon Dec 13 23:00:27 2021
 | Host         : LAPTOP-GOHVDH8E running 64-bit major release  (build 9200)
 | Command      : report_drc -file memory_top_drc_opted.rpt -pb memory_top_drc_opted.pb -rpx memory_top_drc_opted.rpx
 | Design       : memory_top
@@ -50,8 +50,8 @@ Related violations: <none>
 
 PLHOLDVIO-2#1 Warning
 Non-Optimal connections which could lead to hold violations  
-A LUT u_memory_w_r/u_led_mem_i_1 is driving clock pin of 21 cells. This could lead to large hold time violations. Involved cells are:
-u_led_mem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram, u_memory_w_r/addr_reg[0], u_memory_w_r/addr_reg[1], u_memory_w_r/addr_reg[2], u_memory_w_r/addr_reg[3], u_memory_w_r/data_reg[0], u_memory_w_r/data_reg[10], u_memory_w_r/data_reg[11], u_memory_w_r/data_reg[12], u_memory_w_r/data_reg[13], u_memory_w_r/data_reg[14], u_memory_w_r/data_reg[15], u_memory_w_r/data_reg[1], u_memory_w_r/data_reg[2], u_memory_w_r/data_reg[3] (the first 15 of 21 listed)
+A LUT u_memory_w_r/u_led_mem_i_1 is driving clock pin of 7 cells. This could lead to large hold time violations. Involved cells are:
+flag_reg, u_led_mem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram, u_memory_w_r/addr_reg[0], u_memory_w_r/addr_reg[1], u_memory_w_r/addr_reg[2], u_memory_w_r/addr_reg[3], u_memory_w_r/flag_reg
 Related violations: <none>
 
 REQP-1840#1 Warning

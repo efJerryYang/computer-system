@@ -73,6 +73,7 @@ module testbench ();
                 result[i] <= 32'h0;
         end
         else begin
+            result[0]  <= 16'hFFFF;
             result[1]  <= 16'h0001;
             result[2]  <= 16'h0003;
             result[3]  <= 16'h0007;

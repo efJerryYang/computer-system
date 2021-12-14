@@ -34,12 +34,12 @@ read_verilog -library xil_defaultlib {
   C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/new/memory_w_r.v
   {C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/imports/实验3 利用IP设计电路/memory_top.v}
 }
-read_ip -quiet c:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/clk_div/clk_div.xci
+read_ip -quiet C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/clk_div/clk_div.xci
 set_property used_in_implementation false [get_files -all c:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/clk_div/clk_div_board.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/clk_div/clk_div.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/clk_div/clk_div_ooc.xdc]
 
-read_ip -quiet c:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/led_mem/led_mem.xci
+read_ip -quiet C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/led_mem/led_mem.xci
 set_property used_in_implementation false [get_files -all c:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sources_1/ip/led_mem/led_mem_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being

@@ -1,5 +1,6 @@
 `timescale 1ns / 1ps
-module memory_w_r(input clk_in,
+module memory_w_r(input clk_20mhz,
+                  input clk,
                   input rst,
                   input locked,
                   input button,
@@ -9,8 +10,8 @@ module memory_w_r(input clk_in,
                   output reg ena,
                   output reg [3:0] addr,
                   output reg [15:0] data);
-    parameter CLK_CNT_MAX = 27'd1000_0000;  // 1s
-    // parameter CLK_CNT_MAX    = 27'd2;   // sim 3clk
+    // parameter CLK_CNT_MAX = 27'd5000_0000;  // 1s
+    parameter CLK_CNT_MAX    = 27'd2;   // sim 3clk
     parameter STATE_INIT     = 2'd0;
     parameter STATE_WRITE    = 2'd1;
     parameter STATE_READ     = 2'd2;
@@ -20,29 +21,26 @@ module memory_w_r(input clk_in,
     reg clk_1s               = 1'b0;
     reg [26:0] cnt_1s        = 27'd0;
     wire [15:0] storage [15:0];
-    always @(posedge clk_in or posedge rst) begin  // state
-        if (rst || !locked)
+
+    always @(posedge clk_20mhz or posedge rst) begin
+        if(rst || !locked)
             state <= STATE_INIT;
         else begin
-            case(state)
-                STATE_INIT: begin
-                    if (button) state <= STATE_WRITE;
-                    else        state <= STATE_INIT;
-                end
-                STATE_WRITE: begin
-                    if (addr == ADDR_MAX)
-                        state <= STATE_READ;
-                    else
-                        state <= STATE_WRITE;
-                end
-                STATE_READ: state <= state;
-                default:    state <= state;
+            case (state)
+                STATE_INIT : state <= button ? STATE_WRITE : STATE_INIT;
+                STATE_WRITE: state <= (addr == ADDR_MAX) ? STATE_READ : STATE_WRITE;
+                STATE_READ : state <= state;
+                default    : state <= state;
             endcase
         end
+        
     end
-    assign clk_out = state == STATE_WRITE ? clk_in: ~clk_1s; // clk_out
-    
-    always @(posedge clk_in or posedge rst) begin // cnt_1s
+    // assign clk_out = (state == STATE_WRITE) ? clk_20mhz: clk_1s; // clk_out
+    assign clk_out = (state == STATE_WRITE) ? clk: 
+                     (CLK_CNT_MAX == 27'd2) ? clk_20mhz:
+                      clk_1s;  // clk_out, complex conditions for simulation PASS
+  
+    always @(posedge clk_20mhz or posedge rst) begin // cnt_1s
         if (rst || !state || !locked)
             cnt_1s <= 0;
         else if (state == STATE_READ) begin
@@ -54,7 +52,7 @@ module memory_w_r(input clk_in,
         else
             cnt_1s <= cnt_1s;
     end
-    always @(posedge clk_in or posedge rst) begin // clk_1s
+    always @(posedge clk_20mhz or posedge rst) begin // clk_1s
         if (rst || !state || !locked)
             clk_1s <= 0;
         else if (cnt_1s == CLK_CNT_MAX-1)
@@ -74,9 +72,9 @@ module memory_w_r(input clk_in,
                 addr <= 0;
         end
         else 
-            {addr, flag} <= flag? {addr+1, 1'b1}:{addr, 1'b1};
+            {addr, flag} <= flag ? {addr+1, 1'b1} : {addr, 1'b1};
     end
-    always @(posedge clk_in or posedge rst) begin // ena, wea
+    always @(posedge clk or posedge rst) begin // ena, wea
         if (rst || !state) begin
             ena <= 0;
             wea <= 0;
@@ -89,6 +87,19 @@ module memory_w_r(input clk_in,
                 wea <= 0;
         end
     end
+    // always @(posedge clk_20mhz or posedge rst) begin // ena, wea
+    //     if (rst || (!state && !button)) begin
+    //         ena <= 0;
+    //         wea <= 0;
+    //     end
+    //     else begin
+    //         ena <= 1;
+    //         if (button || state == STATE_WRITE)
+    //             wea <= 1;
+    //         else
+    //             wea <= 0;
+    //     end
+    // end
     
     generate
     genvar i;

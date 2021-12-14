@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sun Dec 12 11:18:41 2021
+# Process ID: 8288
+# Current directory: E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent1696 E:\GitHub\ComputerSystem\LogicDesign\Experiment\Exp3\memory_w_r\memory_w_r.xpr
+# Log file: E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/vivado.log
+# Journal file: E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.xpr
+update_compile_order -fileset sources_1
+set_property -name {xsim.simulate.log_all_signals} -value {true} -objects [get_filesets sim_1]
+set_property -name {xsim.simulate.saif_all_signals} -value {true} -objects [get_filesets sim_1]
+launch_simulation
+source testbench.tcl
+run all
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+run all
+run all
+run all
+run all
+run all
+close_sim
