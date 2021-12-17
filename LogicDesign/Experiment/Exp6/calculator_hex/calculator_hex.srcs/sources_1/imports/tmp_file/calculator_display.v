@@ -5,7 +5,7 @@ module calculator_display(input wire clk,
                           input wire [31:0] cal_result,
                           output reg [7:0] led_en,
                           output wire [7:0] led_w);
-    // parameter SCAN_CNT_MAX = 20'd1_0000;
+//     parameter SCAN_CNT_MAX = 20'd1_0000;
     parameter SCAN_CNT_MAX    = 20'd5;  // simulation
     wire rst_n                = ~rst;
     reg  on_button            = 0;

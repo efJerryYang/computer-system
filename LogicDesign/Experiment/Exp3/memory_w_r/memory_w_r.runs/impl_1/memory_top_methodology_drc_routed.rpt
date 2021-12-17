@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Mon Dec 13 23:01:08 2021
-| Host         : LAPTOP-GOHVDH8E running 64-bit major release  (build 9200)
+| Date         : Fri Dec 17 20:00:51 2021
+| Host         : PA05 running 64-bit major release  (build 9200)
 | Command      : report_methodology -file memory_top_methodology_drc_routed.rpt -pb memory_top_methodology_drc_routed.pb -rpx memory_top_methodology_drc_routed.rpx
 | Design       : memory_top
 | Device       : xc7a100tfgg484-1
@@ -23,13 +23,13 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 5
+             Violations found: 13
 +-----------+----------+------------------------------------------------------------------+------------+
 | Rule      | Severity | Description                                                      | Violations |
 +-----------+----------+------------------------------------------------------------------+------------+
 | CKLD-2    | Warning  | Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads | 1          |
-| TIMING-14 | Warning  | LUT on the clock tree                                            | 1          |
-| TIMING-17 | Warning  | Non-clocked sequential cell                                      | 2          |
+| LUTAR-1   | Warning  | LUT drives async reset alert                                     | 1          |
+| TIMING-17 | Warning  | Non-clocked sequential cell                                      | 10         |
 | TIMING-27 | Warning  | Invalid primary clock on hierarchical pin                        | 1          |
 +-----------+----------+------------------------------------------------------------------+------------+
 
@@ -40,17 +40,57 @@ Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads
 Clock net clk_IBUF is directly driven by an IO rather than a Clock Buffer or may be an IO driving a mix of Clock Buffer and non-Clock loads. This connectivity should be reviewed and corrected as appropriate. Driver(s): clk_IBUF_inst/O, u_clk_div/clk_in1, u_memory_w_r/clk
 Related violations: <none>
 
-TIMING-14#1 Warning
-LUT on the clock tree  
-The LUT u_memory_w_r/u_led_mem_i_1 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell u_memory_w_r/cnt_1s[26]_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) u_memory_w_r/clk_1s_reg/CLR. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
 Related violations: <none>
 
 TIMING-17#1 Warning
 Non-clocked sequential cell  
-The clock pin u_memory_w_r/ena_reg/C is not reached by a timing clock
+The clock pin flag_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#2 Warning
+Non-clocked sequential cell  
+The clock pin u_led_mem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram/CLKARDCLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#3 Warning
+Non-clocked sequential cell  
+The clock pin u_led_mem/U0/inst_blk_mem_gen/gnbram.gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/prim_noinit.ram/DEVICE_7SERIES.NO_BMM_INFO.SP.WIDE_PRIM18.ram/CLKBWRCLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#4 Warning
+Non-clocked sequential cell  
+The clock pin u_memory_w_r/addr_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#5 Warning
+Non-clocked sequential cell  
+The clock pin u_memory_w_r/addr_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#6 Warning
+Non-clocked sequential cell  
+The clock pin u_memory_w_r/addr_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#7 Warning
+Non-clocked sequential cell  
+The clock pin u_memory_w_r/addr_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#8 Warning
+Non-clocked sequential cell  
+The clock pin u_memory_w_r/ena_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#9 Warning
+Non-clocked sequential cell  
+The clock pin u_memory_w_r/flag_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#10 Warning
 Non-clocked sequential cell  
 The clock pin u_memory_w_r/wea_reg/C is not reached by a timing clock
 Related violations: <none>

@@ -10,7 +10,9 @@ module memory_w_r(input clk_20mhz,
                   output reg ena,
                   output reg [3:0] addr,
                   output reg [15:0] data);
-    // parameter CLK_CNT_MAX = 27'd5000_0000;  // 1s
+//     parameter CLK_CNT_MAX = 27'd5000_0000;  // 1s
+//     parameter CLK_CNT_MAX = 27'd4;  // 8clk
+
     parameter CLK_CNT_MAX    = 27'd2;   // sim 3clk
     parameter STATE_INIT     = 2'd0;
     parameter STATE_WRITE    = 2'd1;
@@ -37,7 +39,7 @@ module memory_w_r(input clk_20mhz,
     end
     // assign clk_out = (state == STATE_WRITE) ? clk_20mhz: clk_1s; // clk_out
     assign clk_out = (state == STATE_WRITE) ? clk: 
-                     (CLK_CNT_MAX == 27'd2) ? clk_20mhz:
+                     (CLK_CNT_MAX == 27'd2) ? clk_20mhz:// clk_20mhz;
                       clk_1s;  // clk_out, complex conditions for simulation PASS
   
     always @(posedge clk_20mhz or posedge rst) begin // cnt_1s

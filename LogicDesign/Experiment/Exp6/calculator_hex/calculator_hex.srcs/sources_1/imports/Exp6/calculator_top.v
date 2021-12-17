@@ -16,7 +16,7 @@ module calculator_top (input wire clk,
     
     wire        clk_g     ;
     wire [31:0] cal_result;
-    wire on_button;
+    wire locked, button_f, on_button;
     wire [7:0] led_w; // w means wire
     
     

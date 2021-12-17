@@ -1,0 +1,15 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.sim/sim_1/impl/func/xsim/testbench_func_impl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_div
+INFO: [VRFC 10-311] analyzing module clk_div_clk_div_clk_wiz
+INFO: [VRFC 10-311] analyzing module led_mem
+INFO: [VRFC 10-311] analyzing module memory_top
+INFO: [VRFC 10-311] analyzing module memory_w_r
+INFO: [VRFC 10-311] analyzing module led_mem_blk_mem_gen_generic_cstr
+INFO: [VRFC 10-311] analyzing module led_mem_blk_mem_gen_prim_width
+INFO: [VRFC 10-311] analyzing module led_mem_blk_mem_gen_prim_wrapper
+INFO: [VRFC 10-311] analyzing module led_mem_blk_mem_gen_top
+INFO: [VRFC 10-311] analyzing module led_mem_blk_mem_gen_v8_4_2
+INFO: [VRFC 10-311] analyzing module led_mem_blk_mem_gen_v8_4_2_synth
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sim_1/imports/实验3 利用IP设计电路/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench

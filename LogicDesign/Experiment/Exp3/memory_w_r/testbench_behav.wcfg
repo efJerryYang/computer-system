@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="2328014150fs"></ZoomStartTime>
-      <ZoomEndTime time="3002014151fs"></ZoomEndTime>
+      <ZoomStartTime time="1854887000fs"></ZoomStartTime>
+      <ZoomEndTime time="1855565001fs"></ZoomEndTime>
       <Cursor1Time time="1855000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="126"></ValueColumnWidth>
+      <ValueColumnWidth column_width="122"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="34" />
+   <WVObjectSize size="35" />
    <wvobject fp_name="/testbench/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -143,6 +143,10 @@
    <wvobject fp_name="/testbench/u_memory_top/u_led_mem/douta" type="array">
       <obj_property name="ElementShortName">douta[15:0]</obj_property>
       <obj_property name="ObjectShortName">douta[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/u_memory_top/flag" type="logic">
+      <obj_property name="ElementShortName">flag</obj_property>
+      <obj_property name="ObjectShortName">flag</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/u_memory_top/addr" type="array">
       <obj_property name="ElementShortName">addr[3:0]</obj_property>

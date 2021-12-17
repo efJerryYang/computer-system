@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Tue Dec 14 11:40:13 2021
-| Host         : PA12 running 64-bit major release  (build 9200)
+| Date         : Fri Dec 17 19:00:21 2021
+| Host         : PA05 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file calculator_top_control_sets_placed.rpt
 | Design       : calculator_top
 | Device       : xc7a100t
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     6 |
-| Unused register locations in slices containing registers |    12 |
+| Number of unique control sets                            |     5 |
+| Unused register locations in slices containing registers |     6 |
 +----------------------------------------------------------+-------+
 
 
@@ -35,7 +35,6 @@ Table of Contents
 | Fanout | Control Sets |
 +--------+--------------+
 |      3 |            1 |
-|     11 |            1 |
 |    16+ |            4 |
 +--------+--------------+
 
@@ -46,11 +45,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              11 |            7 |
-| No           | No                    | Yes                    |              42 |           12 |
-| No           | Yes                   | No                     |              32 |           19 |
+| No           | No                    | No                     |               0 |            0 |
+| No           | No                    | Yes                    |              42 |           11 |
+| No           | Yes                   | No                     |              32 |           18 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |              55 |           11 |
+| Yes          | No                    | Yes                    |              64 |           15 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -61,12 +60,11 @@ Table of Contents
 +--------------------------+------------------------------------------+-------------------------------------------+------------------+----------------+
 |       Clock Signal       |               Enable Signal              |              Set/Reset Signal             | Slice Load Count | Bel Load Count |
 +--------------------------+------------------------------------------+-------------------------------------------+------------------+----------------+
-|  u_clk_div/inst/clk_out1 |                                          | rst_IBUF                                  |                2 |              3 |
-|  u_clk_div/inst/clk_out1 |                                          |                                           |                7 |             11 |
-|  u_clk_div/inst/clk_out1 | u_key_filter/cnt0                        | rst_IBUF                                  |                5 |             23 |
-|  u_clk_div/inst/clk_out1 | u_calculator_hex/prev_result[31]_i_1_n_1 | rst_IBUF                                  |                6 |             32 |
-|  n_0_1038_BUFG           |                                          | rst_IBUF                                  |               19 |             32 |
-|  u_clk_div/inst/clk_out1 |                                          | u_calculator_display/scan_cnt[20]_i_2_n_1 |               10 |             39 |
+|  u_clk_div/inst/clk_out1 |                                          | rst_IBUF                                  |                3 |              3 |
+|  button_f_BUFG           |                                          | rst_IBUF                                  |               18 |             32 |
+|  u_clk_div/inst/clk_out1 | u_calculator_hex/prev_result[31]_i_1_n_0 | rst_IBUF                                  |                7 |             32 |
+|  u_clk_div/inst/clk_out1 | u_key_filter/cnt[31]_i_1_n_0             | rst_IBUF                                  |                8 |             32 |
+|  u_clk_div/inst/clk_out1 |                                          | u_calculator_display/scan_cnt[20]_i_2_n_0 |                8 |             39 |
 +--------------------------+------------------------------------------+-------------------------------------------+------------------+----------------+
 
 

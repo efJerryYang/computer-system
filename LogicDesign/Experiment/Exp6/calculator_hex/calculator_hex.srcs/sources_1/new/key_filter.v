@@ -4,7 +4,7 @@ module key_filter(input wire rst,
                   input wire clk,
                   input wire button,
                   output reg button_f);
-    // parameter CNT_MAX = 32'd1000;
+//     parameter CNT_MAX = 32'd1000;
     parameter CNT_MAX    = 32'd3;  // simulation
     
     wire rst_n     = ~rst;
