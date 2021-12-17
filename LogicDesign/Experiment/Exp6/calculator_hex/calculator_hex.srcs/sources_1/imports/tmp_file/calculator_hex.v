@@ -11,9 +11,6 @@ module calculator_hex (input wire clk,
     reg on_button          = 0;
     reg flag               = 0;
     reg [31:0] prev_result = 0;
-    // reg [7:0] num1_delay   = 0;
-    // reg [7:0] num2_delay   = 0;
-    // reg [2:0] func_delay   = 0;
 
     always @(posedge clk, negedge rst_n) begin  // on_button, prev_result
         if (~rst_n || !locked)
@@ -23,11 +20,6 @@ module calculator_hex (input wire clk,
         else
             on_button <= on_button;
     end
-    // always @(posedge clk) begin  // delay 1 clk period
-    //     num1_delay <= num1;
-    //     num2_delay <= num2;
-    //     func_delay <= func;
-    // end
     always @(posedge clk, negedge rst_n) begin
         if (~rst_n)
             flag <= 0;

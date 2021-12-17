@@ -12,17 +12,14 @@ module calculator_display(input wire clk,
     reg [7:0]  cur_code       = 8'hff;
     reg [20:0] scan_cnt       = 0;
     reg [2:0]  scan_pos       = 0;
-    // reg [7:0]  led_r;  // r means reg
     wire [3:0] result [7:0];
-    // assign led_w = led_r;
     
     generate
     genvar i;
     for (i = 0; i< 8; i = i + 1) begin: result_block
-    assign result[i] = cal_result[i*4 +: 4];
+    assign result[i] = cal_result[i*4 +: 4];  // just for read convenience
     end
     endgenerate
-    
     always @(posedge clk, negedge rst_n) begin  // on_button
         if (~rst_n || !locked)
             on_button <= 0;
@@ -43,7 +40,6 @@ module calculator_display(input wire clk,
         else
             scan_cnt <= 0;
     end
-    
     always @(posedge clk, negedge rst_n) begin  // scan_pos
         if (~rst_n || !on_button)
             scan_pos <= 0;
@@ -97,7 +93,7 @@ module calculator_display(input wire clk,
         else
             cur_code <= 8'hff;
     end
-    
+
     assign led_w = 
     (~rst_n || !on_button) ? 8'hff    :
     on_button              ? cur_code :
