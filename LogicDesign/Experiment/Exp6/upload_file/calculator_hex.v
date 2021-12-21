@@ -50,8 +50,6 @@ module calculator_hex (input wire clk,
                 3'd3: cal_result    = prev_result / num2; // divide
                 3'd4: cal_result    = prev_result % num2; // mod
                 3'd5: cal_result    = prev_result * prev_result; // square
-                // Todo: add more cases here (?)
-                // pow,sqrt
                 default: cal_result = 0;
             endcase
         else
