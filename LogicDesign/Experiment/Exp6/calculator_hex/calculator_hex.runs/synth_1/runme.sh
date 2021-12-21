@@ -11,9 +11,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=C:/Xilinx/SDK/2018.3/bin;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2018.3/bin
+  PATH=D:/Programs/Xilinx/SDK/2018.3/bin;D:/Programs/Xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;D:/Programs/Xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:D:/Programs/Xilinx/Vivado/2018.3/bin
 else
-  PATH=C:/Xilinx/SDK/2018.3/bin;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2018.3/bin:$PATH
+  PATH=D:/Programs/Xilinx/SDK/2018.3/bin;D:/Programs/Xilinx/Vivado/2018.3/ids_lite/ISE/bin/nt64;D:/Programs/Xilinx/Vivado/2018.3/ids_lite/ISE/lib/nt64:D:/Programs/Xilinx/Vivado/2018.3/bin:$PATH
 fi
 export PATH
 
@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.runs/synth_1'
+HD_PWD='C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

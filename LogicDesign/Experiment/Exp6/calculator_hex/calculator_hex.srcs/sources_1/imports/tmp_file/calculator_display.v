@@ -5,24 +5,22 @@ module calculator_display(input wire clk,
                           input wire [31:0] cal_result,
                           output reg [7:0] led_en,
                           output wire [7:0] led_w);
-    // parameter SCAN_CNT_MAX = 20'd1_0000;
-    parameter SCAN_CNT_MAX    = 20'd5;  // simulation
-    wire rst_n                = ~rst;
-    reg  on_button            = 0;
-    reg [7:0]  cur_code       = 8'hff;
-    reg [20:0] scan_cnt       = 0;
-    reg [2:0]  scan_pos       = 0;
-    // reg [7:0]  led_r;  // r means reg
-    wire [3:0] result [7:0];
-    // assign led_w = led_r;
+    // parameter SCAN_CNT_MAX = 20'd1_0000; // 扫描时间间隔计数最大时钟周期数
+    parameter SCAN_CNT_MAX = 20'd5;      // simulation
+    
+    wire rst_n          = ~rst ;  // rst_n下降沿复位
+    reg  on_button      = 0    ;  // 开始计算后，处于工作状态的标记信号
+    reg [7:0]  cur_code = 8'hff;  // 当前结果位置数值显示到数码管上对应的编码
+    reg [20:0] scan_cnt = 0    ;  // 扫描计数器
+    reg [2:0]  scan_pos = 0    ;  // 当前扫描的位置
+    wire [3:0] result [7:0]    ;  // 重新分割32位2进制计算结果的位，分割成8个4位数值，只是为了人直接的阅读方面
     
     generate
     genvar i;
     for (i = 0; i< 8; i = i + 1) begin: result_block
-    assign result[i] = cal_result[i*4 +: 4];
+    assign result[i] = cal_result[i*4 +: 4];  // just for read convenience
     end
     endgenerate
-    
     always @(posedge clk, negedge rst_n) begin  // on_button
         if (~rst_n || !locked)
             on_button <= 0;
@@ -43,13 +41,12 @@ module calculator_display(input wire clk,
         else
             scan_cnt <= 0;
     end
-    
     always @(posedge clk, negedge rst_n) begin  // scan_pos
         if (~rst_n || !on_button)
             scan_pos <= 0;
         else if (on_button && scan_cnt == SCAN_CNT_MAX-1)
             scan_pos <= scan_pos + 1;
-        else if (on_button && scan_cnt< SCAN_CNT_MAX-1)
+        else if (on_button && scan_cnt < SCAN_CNT_MAX-1)
             scan_pos <= scan_pos;
         else
             scan_pos <= 0;
@@ -101,6 +98,6 @@ module calculator_display(input wire clk,
     assign led_w = 
     (~rst_n || !on_button) ? 8'hff    :
     on_button              ? cur_code :
-    8'hff;
+    8'hff;  // using operator ?: directly instead of if-else statement
 endmodule
     

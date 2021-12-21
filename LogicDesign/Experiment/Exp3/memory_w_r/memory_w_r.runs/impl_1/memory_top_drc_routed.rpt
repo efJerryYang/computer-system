@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Mon Dec 13 23:01:07 2021
-| Host         : LAPTOP-GOHVDH8E running 64-bit major release  (build 9200)
+| Date         : Fri Dec 17 20:00:50 2021
+| Host         : PA05 running 64-bit major release  (build 9200)
 | Command      : report_drc -file memory_top_drc_routed.rpt -pb memory_top_drc_routed.pb -rpx memory_top_drc_routed.rpx
 | Design       : memory_top
 | Device       : xc7a100tfgg484-1
@@ -51,7 +51,7 @@ Related violations: <none>
 
 PDRC-153#1 Warning
 Gated clock check  
-Net u_memory_w_r/CLK is a gated clock net sourced by a combinational pin u_memory_w_r/u_led_mem_i_1/O, cell u_memory_w_r/u_led_mem_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net u_memory_w_r/clk_0 is a gated clock net sourced by a combinational pin u_memory_w_r/u_led_mem_i_1/O, cell u_memory_w_r/u_led_mem_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PLHOLDVIO-2#1 Warning
