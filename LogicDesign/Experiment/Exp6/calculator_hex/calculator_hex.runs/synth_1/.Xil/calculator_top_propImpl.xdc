@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.srcs/constrs_1/imports/Exp_Packages/Exp_general.xdc rfile:../../../calculator_hex.srcs/constrs_1/imports/Exp_Packages/Exp_general.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.srcs/constrs_1/imports/Exp_Packages/Exp_general.xdc rfile:../../../calculator_hex.srcs/constrs_1/imports/Exp_Packages/Exp_general.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:1 export:INPUT save:INPUT read:READ} [current_design]
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets button_IBUF]
 set_property src_info {type:XDC file:1 line:7 export:INPUT save:INPUT read:READ} [current_design]

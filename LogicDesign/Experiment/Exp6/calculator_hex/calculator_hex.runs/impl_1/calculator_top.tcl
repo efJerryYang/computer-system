@@ -68,14 +68,14 @@ set rc [catch {
   create_project -in_memory -part xc7a100tfgg484-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.cache/wt [current_project]
-  set_property parent.project_path E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.xpr [current_project]
-  set_property ip_output_repo E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.cache/ip [current_project]
+  set_property webtalk.parent_dir C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.cache/wt [current_project]
+  set_property parent.project_path C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.xpr [current_project]
+  set_property ip_output_repo C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
-  add_files -quiet E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.runs/synth_1/calculator_top.dcp
-  read_ip -quiet E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.srcs/sources_1/ip/clk_div/clk_div.xci
-  read_xdc E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.srcs/constrs_1/imports/Exp_Packages/Exp_general.xdc
+  add_files -quiet C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.runs/synth_1/calculator_top.dcp
+  read_ip -quiet C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.srcs/sources_1/ip/clk_div/clk_div.xci
+  read_xdc C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.srcs/constrs_1/imports/Exp_Packages/Exp_general.xdc
   link_design -top calculator_top -part xc7a100tfgg484-1
   close_msg_db -file init_design.pb
 } RESULT]

@@ -21,5 +21,3 @@ INFO: [VRFC 10-2458] undeclared symbol led_ce, assumed default net type wire [C:
 INFO: [VRFC 10-2458] undeclared symbol led_cf, assumed default net type wire [C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.srcs/sim_1/imports/Exp6/testbench.v:169]
 INFO: [VRFC 10-2458] undeclared symbol led_cg, assumed default net type wire [C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.srcs/sim_1/imports/Exp6/testbench.v:170]
 INFO: [VRFC 10-2458] undeclared symbol led_dp, assumed default net type wire [C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.srcs/sim_1/imports/Exp6/testbench.v:171]
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl

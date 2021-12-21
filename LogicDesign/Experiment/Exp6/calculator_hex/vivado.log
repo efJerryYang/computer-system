@@ -2,10 +2,10 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Fri Dec 17 20:38:21 2021
-# Process ID: 14396
+# Start of session at: Tue Dec 21 10:43:22 2021
+# Process ID: 8256
 # Current directory: C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent6732 C:\Users\JerryYang\Documents\GitHub\ComputerSystem\LogicDesign\Experiment\Exp6\calculator_hex\calculator_hex.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10064 C:\Users\JerryYang\Documents\GitHub\ComputerSystem\LogicDesign\Experiment\Exp6\calculator_hex\calculator_hex.xpr
 # Log file: C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/vivado.log
 # Journal file: C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex\vivado.jou
 #-----------------------------------------------------------
@@ -13,13 +13,12 @@ start_gui
 open_project C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.xpr
 INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
 Current project path is 'C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex'
-INFO: [Project 1-313] Project file moved from 'E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex' since last save.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Programs/Xilinx/Vivado/2018.3/data/ip'.
-open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:10 . Memory (MB): peak = 807.824 ; gain = 146.195
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:07 . Memory (MB): peak = 855.188 ; gain = 211.582
 update_compile_order -fileset sources_1
 launch_simulation
 INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
@@ -57,8 +56,6 @@ INFO: [VRFC 10-2458] undeclared symbol led_ce, assumed default net type wire [C:
 INFO: [VRFC 10-2458] undeclared symbol led_cf, assumed default net type wire [C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.srcs/sim_1/imports/Exp6/testbench.v:169]
 INFO: [VRFC 10-2458] undeclared symbol led_cg, assumed default net type wire [C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.srcs/sim_1/imports/Exp6/testbench.v:170]
 INFO: [VRFC 10-2458] undeclared symbol led_dp, assumed default net type wire [C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.srcs/sim_1/imports/Exp6/testbench.v:171]
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
 INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
 INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.sim/sim_1/behav/xsim'
@@ -84,7 +81,7 @@ Compiling module xil_defaultlib.calculator_top
 Compiling module xil_defaultlib.testbench
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot testbench_behav
-INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign/Experiment/Exp6/calculator_hex/calculator_hex.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
@@ -107,7 +104,7 @@ source testbench.tcl
 # run 10000ns
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 10000ns
-launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 990.973 ; gain = 0.000
+launch_simulation: Time (s): cpu = 00:00:15 ; elapsed = 00:00:12 . Memory (MB): peak = 1093.207 ; gain = 45.867
 run all
 index 6 finished
 ====================================
@@ -118,4 +115,4 @@ save_wave_config {C:/Users/JerryYang/Documents/GitHub/ComputerSystem/LogicDesign
 close_sim
 INFO: [Simtcl 6-16] Simulation closed
 exit
-INFO: [Common 17-206] Exiting Vivado at Fri Dec 17 20:40:35 2021...
+INFO: [Common 17-206] Exiting Vivado at Tue Dec 21 12:31:42 2021...
