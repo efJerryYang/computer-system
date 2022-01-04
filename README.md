@@ -4,6 +4,12 @@
 
 正在学，只做了教材练习和实验
 
+### Content structure
+
+* labs
+  * 1-data
+* notes.md
+
 ## Logic Design
 
 当前包括数字逻辑课件、作业和实验，及Verilog练习
