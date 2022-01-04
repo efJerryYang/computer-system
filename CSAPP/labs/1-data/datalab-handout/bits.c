@@ -143,7 +143,7 @@ NOTES:
  */
 int bitXor(int x, int y)
 {
-  return (~(~x & y) & ~(x & ~y));
+  return ~(~(~x & y) & ~(x & ~y));
 }
 /* 
  * tmin - return minimum two's complement integer 
@@ -181,12 +181,12 @@ int allOddBits(int x) // **
 {
   // return !((x & 0xAAAAAAAA) ^ 0xAAAAAAAA);
   int mask = 0xAA; // 0xAA
-  // mask = (mask << 0x08) | mask;  // 0xAAAA
-  // mask = (mask << 0x08) | mask;  // 0xAAAAAA
-  // mask = (mask << 0x08) | mask;  // 0xAAAAAAAA
+  // mask |= (mask << 0x08);  // 0xAAAA
+  // mask |= (mask << 0x08);  // 0xAAAAAA
+  // mask |= (mask << 0x08);  // 0xAAAAAAAA
   // 0xAA; // 1 byte every time
-  // mask |= (mask << 24) | (mask << 16) | (mask << 8); // cleaner format
-  mask |= (mask << 0x18) | (mask << 0x10) | (mask << 0x08); // hex constant
+  // mask |= (mask << 0x18) | (mask << 0x10) | (mask << 0x08); // hex constant
+  mask |= (mask << 24) | (mask << 16) | (mask << 8); // cleaner format
   return !((x & mask) ^ mask);
 }
 /* 
@@ -248,18 +248,62 @@ int conditional(int x, int y, int z)
  *   Max ops: 24
  *   Rating: 3
  */
-int isLessOrEqual(int x, int y)
+int isLessOrEqual(int x, int y) // Terrible! 4 hours or more on this
 {
-  // preknowledge from digital logic design
+  // knowledge of digital logic design
   // A'B A<B
   // AB' A>B
   // A NXOR B A==B
-  // > and !
-  int bit_xGy = x & ~y;
-  int bit_xLy = ~x & y;
-  int mask = ~0 & (bit_xLy | bit_xGy);
-  //
-  return !(bit_xGy | bit_xLy) | ; 
+
+  // Omit readability to satisfy the Max ops requirement
+  int x_r31_shifts = (x >> 31);
+  int y_r31_shifts = (y >> 31);
+  int xLy_sgn = x_r31_shifts & !y_r31_shifts; // 1 if x < 0 && y > 0 else 0
+  int xGy_sgn = !x_r31_shifts & y_r31_shifts; // 1 if x > 0 && y < 0 else 0
+
+  int leq_un = x ^ y; // discard sign bit, set the other equal bits to 0
+  /* MSB algorithm, logN*/
+  leq_un |= leq_un >> 1;
+  leq_un |= leq_un >> 2;
+  leq_un |= leq_un >> 4;
+  leq_un |= leq_un >> 8;
+  leq_un |= leq_un >> 16;
+  leq_un ^= leq_un >> 1; // guarantee bits at the left of the most significant 1 are set 1, then a 1 bit right shift with xor can get the only 1 in leq_un
+  leq_un = !(leq_un & x);
+
+  return (!xGy_sgn) & (xLy_sgn | leq_un);
+
+  /* The readable code, but not satisfied the Max ops requirement
+  int direct_equal = !(x ^ y);           // 1 if x == y else 0
+  int xLy_sgn = (x >> 31) & !(y >> 31);  // 1 if x < 0 && y > 0 else 0
+  int xGy_sgn = !(x >> 31) & (y >> 31);  // 1 if x > 0 && y < 0 else 0
+  int unsgn_less = (x ^ y) & ~(1 << 31); // discard sign bit, set the other equal bits to 0
+  unsgn_less |= unsgn_less >> 1;
+  unsgn_less |= unsgn_less >> 2;
+  unsgn_less |= unsgn_less >> 4;
+  unsgn_less |= unsgn_less >> 8;
+  unsgn_less |= unsgn_less >> 16;
+  unsgn_less ^= unsgn_less >> 1; // guarantee bits at the left of the most significant 1 are set 1, then a 1 bit right shift with xor can get the only 1 in unsgn_less
+  unsgn_less = !(unsgn_less & x);
+  return (!xGy_sgn) & (direct_equal | xLy_sgn | unsgn_less);
+
+  */
+  /* One example code from stackoverflow
+  int a = y + ~x + 1;
+  int b = a & 1 << 31 & a;                      // (!b) => y >= x, but maybe overflow
+  int c = !!(x & (1 << 31)) & !(y & (1 << 31)); // y > 0, x < 0
+  int d = !(x & (1 << 31)) & !!(y & (1 << 31)); // x > 0, y < 0
+
+  int mask1 = !c + ~0;
+
+  // if y > 0 && x < 0, return 1. else return !b
+  int ans = ~mask1 & !b | mask1 & 1;
+
+  int mask2 = !d + ~0;
+
+  // if y < 0 && x > 0, return 0, else return ans
+  return ~mask2 & ans | mask2 & 0;
+  */
 }
 //4
 /* 
@@ -272,9 +316,30 @@ int isLessOrEqual(int x, int y)
  */
 int logicalNeg(int x)
 {
-  int flag = ~x;
-  // flag = x ? 0, 1;
-  return 2;
+  /*
+  1. tried using properties of ~x+1+x=0, but realize that it just 
+     does not change anything, then thinking for another method
+  2. 0, different from pos or neg, can be recognized using sign,
+     here are the algorithm:
+   TMin >> 31    1111....1111
+  -TMin >> 31    1111....1111
+   0    >> 31    0000....0000
+  -0    >> 31    0000....0000
+  ^ will yield pure 0x00000000, +0x01 to get 1
+  the other number x
+   x(p) >> 31    0000....0000
+  -x    >> 31    1111....1111
+   x(n) >> 31    1111....1111
+  -x    >> 31    0000....0000
+  ^ will yield pure 0xffffffff, +0x01 to get 0
+
+  but to detect TMin in particular, using | instead, and the 
+  new pattern would be like this:
+  | will yield pure 0x00000000, +0x01 to get 1
+  for the others, 
+  | will yield pure 0xffffffff, +0x01 to get 0
+  */
+  return ((x >> 31) | ((~x + 1) >> 31)) + 1;
 }
 /* howManyBits - return the minimum number of bits required to represent x in
  *             two's complement
@@ -288,9 +353,61 @@ int logicalNeg(int x)
  *  Max ops: 90
  *  Rating: 4
  */
-int howManyBits(int x)
+int howManyBits(int x) // The toughest one, I have to say. Thanks to MSB algor and the bithack web, thanks to stackoverflow :)
 {
-  return 0;
+  // int mask_pos = 0x3ffffffff;
+  // int mask_neg = 0xC00000000;
+  // int sgn = (x >> 31) + 1; //
+  // int mask_sgn = (x >> 31);
+  // mask_sgn |= (mask_sgn + 1) << 29;
+  // //... assuming the mask_sgn has got the final state
+  // x &mask_sgn;
+  //  // Max ops are quite loose, first handle it through shifting mask
+  int sgn = (x >> 31);               // 000...00 pos, 111...00 neg
+  int msb = (~x & sgn) | (x & ~sgn); // do ~ if  x is neg else do nothing
+  int mask = 0;                      // 0xAA,0xCC,0xF0,0xFF00,0xFFFF0000
+  int r = 0;
+  msb |= msb >> 1;
+  msb |= msb >> 2;
+  msb |= msb >> 4;
+  msb |= msb >> 8;
+  msb |= msb >> 16;
+  //  // msb ^= ((msb >> 1) & ~(1 << 31)); //do logic right shift, but when considering the ~ operation at first when sign bit is 1, this step is unnecessary
+  msb ^= msb >> 1;
+  // for all cases, I get the most significant bit of two's complement, including the sign bit
+
+  // technique below, learned from http://graphics.stanford.edu/~seander/bithacks.html#IntegerLogLookup
+  //  // unsigned int v = msb; // 32-bit value to find the log2 of
+  //  // static const unsigned int b[] = {0xAAAAAAAA, 0xCCCCCCCC, 0xF0F0F0F0,
+  //  //                                  0xFF00FF00, 0xFFFF0000};
+  mask = 0xAA;
+  mask |= (mask << 24) | (mask << 16) | (mask << 8); // 0xAAAAAAAA
+  r |= !(!(msb & mask));
+  mask = 0xCC;
+  mask |= (mask << 24) | (mask << 16) | (mask << 8); // 0xCCCCCCCC
+  r |= !(!(msb & mask)) << 1;
+
+  mask = 0xF0;
+  mask |= (mask << 24) | (mask << 16) | (mask << 8); // 0xF0F0F0F0
+  r |= !(!(msb & mask)) << 2;
+
+  mask = 0xFF;
+  // mask |= mask << 8;
+  r |= !(!(msb & ((mask << 24) | (mask << 16)))) << 4; // 0xFFFF0000
+
+  mask <<= 8;
+  r |= !(!(msb & (mask | (mask << 16)))) << 3; // 0xFF00FF00
+
+  //  // for (int i = 4; i > 0; i--) // unroll for speed...
+  //  // {
+  //  //   r |= ((v & b[i]) != 0) << i;
+  //  // }
+  // while (msb)
+  // {
+  //   cnt++;
+  //   msb >>= 1;
+  // };
+  return r + 1 + !(!msb);
 }
 //float
 /* 
@@ -306,7 +423,22 @@ int howManyBits(int x)
  */
 unsigned floatScale2(unsigned uf)
 {
-  return 2;
+  unsigned sgn = (uf >> 31) << 31;         // => 0000...00 or 1000...00
+  unsigned exp = (uf & ~(1u << 31)) >> 23; // 32 bits but only use the least significant 8 bits (1 byte)
+  unsigned frac = uf & 0x7fffff;           // set 31~23 to 0
+  if (!exp)
+  {
+    uf <<= 1;
+    uf |= sgn;
+  }
+  else if (exp != 0xff) // neither Inf nor NaN
+  {
+    exp++;
+    if (exp == 0xff)
+      frac = 0;
+    uf = sgn | (exp << 23) | frac;
+  }
+  return uf;
 }
 /* 
  * floatFloat2Int - Return bit-level equivalent of expression (int) f
@@ -322,7 +454,33 @@ unsigned floatScale2(unsigned uf)
  */
 int floatFloat2Int(unsigned uf)
 {
-  return 2;
+  unsigned sgn = uf >> 31;            // => ...01 or ...00
+  int exp = (uf & ~(1u << 31)) >> 23; // 32 bits but only use the least significant 8 bits (1 byte)
+  unsigned frac = uf & 0x7fFFFF;      // set 31~23 to 0
+
+  if (exp <= 0) // 0.f[22]f[21]...f[0]
+    return 0;
+  else if (exp != 0xff)
+  {
+    int E = exp - 127;   // 1.f[22]f[21]...f[0] X 2^(E)
+    int offset = E - 23; // 1f[22]f[21]...f[0]. X 2^(E-23)
+    if (E < 0)
+      return 0;
+    else if (offset > 7) //[s] | ([7][6][5][4][3][2][1]) ([0] | [22][21]...[0])
+      return 0x80000000;
+    else
+    {
+      // -23 <= offset <= 7
+      frac |= 0x800000; // set [23] bit to 1=> (1 | 000....0000)
+      frac = offset < 0 ? (frac >> -offset) : (frac << offset);
+    }
+    if (sgn)
+      return ~frac + 1;
+    else
+      return frac;
+  }
+  else
+    return 0x80000000;
 }
 /* 
  * floatPower2 - Return bit-level equivalent of the expression 2.0^x
@@ -339,5 +497,35 @@ int floatFloat2Int(unsigned uf)
  */
 unsigned floatPower2(int x)
 {
-  return 2;
+  // create float 1.0, and operate it x times to yield the expected result
+
+  unsigned uf = 0x3f800000; // float 1.0 = 1 X 2^(0), 0x800000 means that frac part is zeros but [23] is set 1
+  /*** float 1.0
+   * +-----------------------------------------+
+   * |  3    f     8    0    0    0    0    0  |
+   * |0|011 1111 1|000 0000 0000 0000 0000 0000|
+   * |s|    e     |             f              |
+   * +-+----------+----------------------------+
+   */
+  // unsigned s = 0;
+  // unsigned f = 0;
+  int e = 0x7f + x; // 127+x
+  // int bias = 127;
+  // e += x;
+  /*** float +INF
+   * +-----------------------------------------+
+   * |  7    f     8    0    0    0    0    0  |
+   * |0|111 1111 1|000 0000 0000 0000 0000 0000|
+   * |s|    e     |             f              |
+   * +-+----------+----------------------------+
+   */
+  if (e >= 0xff || (x > 0 && e <= 0)) // overflow
+    uf = 0x7f800000;                  // +INF
+  else if (e > 0)                     // normal
+    uf = e << 23;                     // equivalent to uf = (s << 31) | (e << 23) | f
+  else                                // e < 0, underflow
+    uf = 0;
+  return uf;
+  //  // else if (e == 0)                    // denormal
+  //  //   uf = 0; // from normal to denormal (X, no, there is no need to do so)
 }
