@@ -23,7 +23,7 @@
 
 ### Experiment
 
-![Exp_List](README.assets/Exp_List.png)
+![Exp_List](assets/Exp_List.png)
 
 * 开发板
 
@@ -31,3 +31,4 @@
 
   通用约束文件.xdc见Exp_Packages下Exp_General.xdc，部分语句需要删除或修改
 
+* .7z 文件是打包的工程文件夹和废弃的代码等，用于存档

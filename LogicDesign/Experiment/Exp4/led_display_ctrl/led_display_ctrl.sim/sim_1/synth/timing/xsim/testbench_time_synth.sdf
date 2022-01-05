@@ -1,9 +1,0 @@
-(DELAYFILE 
-(SDFVERSION "3.0" )
-(DESIGN "led_display_ctrl")
-(DATE "Sat Dec  4 19:58:39 2021")
-(VENDOR "XILINX")
-(PROGRAM "Vivado")
-(VERSION "2018.3")
-(DIVIDER /)
-(TIMESCALE 1ps)

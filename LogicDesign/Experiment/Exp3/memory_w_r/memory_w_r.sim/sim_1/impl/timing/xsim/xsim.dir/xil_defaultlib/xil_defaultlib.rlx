@@ -1,6 +1,0 @@
-0.6
-2018.3
-Dec  7 2018
-00:33:28
-E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.sim/sim_1/impl/timing/xsim/testbench_time_impl.v,1639740830,verilog,,E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sim_1/imports/实验3 利用IP设计电路/testbench.v,,clk_div;clk_div_clk_div_clk_wiz;glbl;led_mem;led_mem_blk_mem_gen_generic_cstr;led_mem_blk_mem_gen_prim_width;led_mem_blk_mem_gen_prim_wrapper;led_mem_blk_mem_gen_top;led_mem_blk_mem_gen_v8_4_2;led_mem_blk_mem_gen_v8_4_2_synth;memory_top;memory_w_r,,,../../../../../memory_w_r.srcs/sources_1/ip/clk_div,,,,,
-E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp3/memory_w_r/memory_w_r.srcs/sim_1/imports/实验3 利用IP设计电路/testbench.v,1639280414,verilog,,,,testbench,,,../../../../../memory_w_r.srcs/sources_1/ip/clk_div,,,,,

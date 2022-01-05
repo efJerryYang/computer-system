@@ -1,7 +1,0 @@
-Running: xsim.dir/flowing_water_lights_behav/xsimk.exe -simmode gui -wdb flowing_water_lights_behav.wdb -simrunnum 0 -socket 63643
-Design successfully loaded
-Design Loading Memory Usage: 6260 KB (Peak: 6260 KB)
-Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 6824 KB (Peak: 6824 KB)
-Simulation CPU Usage: 30 ms

@@ -1,7 +1,0 @@
-Vivado Simulator 2018.3
-Time resolution is 1 ps
-index 7 finished
-====================================
-Test end!
-----PASS!!!
-$finish called at time : 1165 ns : File "E:/GitHub/ComputerSystem/LogicDesign/Experiment/Exp5/sequence_detection/sequence_detection.srcs/sim_1/imports/Exp5/testbench.v" Line 89

@@ -1,5 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Administrator/Desktop/led_display_ctrl/led_display_ctrl.sim/sim_1/impl/timing/xsim/testbench_time_impl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module led_display_ctrl
-INFO: [VRFC 10-311] analyzing module glbl
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Administrator/Desktop/led_display_ctrl/led_display_ctrl.srcs/sim_1/imports/JerryYang/testbench.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module testbench
