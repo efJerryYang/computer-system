@@ -7,7 +7,8 @@
 ### Content structure
 
 * labs
-  * 1-data
+  * ch2-data
+  * ch3-bomb
 * notes.md
 
 ## Logic Design
