@@ -7,8 +7,14 @@
 ### Content structure
 
 * labs
-  * ch2-data
-  * ch3-bomb
+
+  - [x] ch2-data
+
+  * [x] ch3-bomb
+  * [x] ch3-attack
+  * [ ] ch4-arch
+  * [ ] ch4-cache
+
 * notes.md
 
 ## Logic Design
