@@ -510,27 +510,43 @@ long int strtol (const char* str, char** endptr, int base);
 
 ## Ch3-Attack Lab
 
-### CATTACK
+### Overview
 
-无法运行`cattack`，虽然看到了这个说升级到wsl2就可以的博客，还是准备在虚拟机上跑。
+The lab consists of 2 parts - one designed for **code-injection attack**, and the other for **return-oriented programming**. 
 
-https://blog.csdn.net/zstuyyyyccccbbbb/article/details/119140914
+The meaning of code-injection is easy to understand, that is, you need to design your own code that you intend to execute on the target program, and use some methods to inject it into the target. 
 
-因为原来的卡，重开了一个Ubuntu，但是发现还是太卡了，9G的内存8个处理器，用free看也就不到2个G，无法理解的卡顿，现在先暂时放弃折腾虚拟机，我觉得是VirtualBox的锅。
+However, when I was faced with the term "return-oriented programming", it was so abstract that I couldn't understand what this approach was to implement the attack. Fortunately, the following explanation is very clear, that is, injecting a set of designed addresses into the stack, the program will return these addresses through the `ret` instruction, and execute the machine code in these addresses. The machine code that is pointed to may just be part of the original instruction, but must end with the machine code `c3` for instruction `ret`, or the code being executed can be just the original code itself (this is the most important info I ignored,  I didn't realize and solved phase 5 using it until the last two hours of finishing this lab).
 
-然后按照博客提示升级了wsl，问题解决。
+### CTARGET
+
+这一部分从一开始就不是很顺利，磕磕绊绊的地方很多。
+
+首先是`wsl`无法直接运行`ctarget`，报错如下所示，在搜索到的一个博客中找到了解决方案，按照博主的提示更新到`wsl2`问题解决。
+
+![image-20220116183241243](assets/image-20220116183241243.png)
+
+> https://blog.csdn.net/zstuyyyyccccbbbb/article/details/119140914
+>
+> 博主提到了运行`rtarget`时可以正常进行，我试了一下也是一样的，不知道是什么奇奇怪怪的原因。
+>
+> ![image-20220116183527622](assets/image-20220116183527622.png)
+
+#### phase 1
 
 按理说第一个题本来是比较简单的，但是没有直接使用管道而是在GDB中复制粘贴导致了字符发生变化，得到的结果不符合预期，折腾几次之后感觉问题出在字符复制粘贴那里。
 
 ![image-20220112164139605](assets/image-20220112164139605.png)
 
-之后改用管道得到正确结果
+之后改用管道得到正确结果，第一题PASS.
 
 ![image-20220112164058699](assets/image-20220112164058699.png)
 
-或者，另一种合适的做法是，将生成的raw文件单独保存（视为二进制文件，避免文本赋值粘贴导致错误）
+或者，另一种合适的做法是，将生成的raw文件单独保存（视为二进制文件，避免文本赋值粘贴导致错误），这一点是我之后通常采用的策略。
 
-记录一下writeup里面给的小技巧
+#### phase 2
+
+这里记录一下writeup里面给的小技巧
 
 ![image-20220112164805249](assets/image-20220112164805249.png)
 
@@ -562,7 +578,7 @@ https://blog.csdn.net/zstuyyyyccccbbbb/article/details/119140914
 4. 删去`xx.d`文件中无用的部分，保留机器指令并将汇编指令改为注释
 5. 将修改过后的`xx.d`文件丢入`hex2raw`得到注入代码文件，`vscode`将其识别为二进制文件，即可执行文件
 
-这里提到了，利用return必然会执行栈顶代码的特点。但是目前，我只有利用buffer进行代码覆盖这一种办法，我要怎么写？
+这里提到了，利用return必然会执行栈顶代码的特点。但是目前，我只有利用buffer进行代码覆盖这一种办法，要怎么写？
 
 我大概有个推测，我能够注入代码的地方就只有从通过gets这里读入字符串的地方，再加上一部分返回地址上面的栈空间，除此外，我没有其他地方可以直接注入代码（我猜）。利用栈释放的时候里面的值不会被修改而只是指针在增减，可以把代码写在下面被释放的位置（但这一点是我不完全确定的），或者也可以继续覆盖掉栈上面的空间，当然，都是利用return这一跳转的特点。
 
@@ -570,15 +586,17 @@ https://blog.csdn.net/zstuyyyyccccbbbb/article/details/119140914
 
 > This program is set up in a way that the stack positions will be consistent from one run to the next and so that data on the stack can be treated as executable code. These features make the program vulnerable to attacks where the exploit strings contain the byte encodings of executable code.
 
-所以才说，要在一台近乎相同的Linux机器上面测试代码，否则会发生栈位置不同而无法成功的问题（但好像其实栈的位置不同也不是不行，攻击也不需要非得在同一个位置进行，只要它检测溢出异常之前能执行就成功了。）
+所以才说，要在一台近乎相同的Linux机器上面测试代码，否则会发生栈位置不同而无法成功的问题（但好像其实栈的位置不同也不是不行，攻击也不需要非得在同一个位置进行，只要它检测溢出异常之前能执行就成功了，不过非要这么说的话就要试试）。
 
 我第一题也应该多覆盖几位，00还不够多，写满16位才能确保地址无误。
 
-这种做法很反常啊，只能倒着填代码，因为写到栈里面的顺序和我读取的顺序是反的，我感觉答案不应该是这样的吧。但如果是利用栈这个位置的话，必然会存在这样的问题啊。但我之前在写第一题的地址的时候又没有出现这个问题，感觉有点怪怪的，因为一次读取的时候是把整个8 bytes一起读取了作为一个数值整体，`little-endian`也符合正常的低位对齐地址低位的习惯，所以应该是没有问题的。
+一开始我的想法出错，导致浪费了大量时间。
 
-汇编里面那种反直觉的写法应该是设定的原因。
+> 这种做法很反常啊，只能倒着填代码，因为写到栈里面的顺序和我读取的顺序是反的，我感觉答案不应该是这样的吧。但如果是利用栈这个位置的话，必然会存在这样的问题啊。但我之前在写第一题的地址的时候又没有出现这个问题，感觉有点怪怪的，因为一次读取的时候是把整个8 bytes一起读取了作为一个数值整体，`little-endian`也符合正常的低位对齐地址低位的习惯，所以应该是没有问题的。
+>
+> 汇编里面那种反直觉的写法应该是设定的原因。
 
-> 这里有点问题，我的代码直接覆盖在了栈下面不该存在的位置，可能和我写的push有关，这里应该要涉及一些栈操作，需要仔细想想。第一次写这类的注入代码，很多方面都考虑的不完善。
+这里有点问题，我的代码直接覆盖在了栈下面不该存在的位置，可能和我写的push有关，这里应该要涉及一些栈操作，需要仔细想想。第一次写这类的注入代码，很多方面都考虑的不完善。
 
 我上面这句的说法是错的，按理说我的做法已经是合适的方式了，如果在非栈空间执行代码是可以被允许的话。
 
@@ -592,29 +610,27 @@ https://blog.csdn.net/zstuyyyyccccbbbb/article/details/119140914
 
 阅读了一下代码段部分的指令表示，感觉可能是我刻意制造的逆序代码是错误的，现在只是粗略的有个这种的感觉，明天细看。
 
-问题解决了，以`little-endian`的规则，所有的格式都不是反直觉的，都是合理的。指令就是从低位读取到高位进行执行的，所以看起来地址的值才是不符合直接阅读的习惯，但这是满足了低位地址对应低位数值位的习惯。机器码指令具有无公共前缀的特点，这意味着不会出现歧义，那么从低位逐字节的读取就不会存在问题。现在了解了这一点，可以开始重新规划一下代码了。
+问题解决了，以`little-endian`的规则，所有的格式都**不是反直觉的**，都是**合理的**。指令就是从低位读取到高位进行执行的，所以看起来地址的值才是不符合直接阅读的习惯，但这是满足了低位地址对应低位数值位的习惯。机器码指令具有无公共前缀的特点，这意味着不会出现歧义，那么从低位逐字节的读取就不会存在问题。现在了解了这一点，可以开始重新规划一下代码了。
 
 注意到了原来代码的问题所在，机器指令是从低位到高位逐个字节读取的，所以我一开始指令的顺序就错了。注入的攻击指令有13个bytes，注入的地址有8个bytes，总共48个bytes位置需要被覆盖，用来填充的`nop`就是27bytes。希望一次成功。
 
-返回地址忘记改了。。。而且也忽略了`little-endian`的写法
-
-第二题pass
+返回地址忘记改了。。。而且也忽略了`little-endian`的写法，不过总算是第二题PASS.
 
 ![image-20220113123113042](assets/image-20220113123113042.png)
 
-这三道题真的是层层递进。。。相当于就是当你什么都不会一步一步的手把手教怎么写，这题更是提示了你之前要是用了buffer位置的栈空间，这回不得行了，因为中间一段会被后面的数据覆盖掉。
+#### phase 3
+
+这三道题真的是层层递进的感觉，相当于就是当你什么都不会一步一步的手把手教怎么写，这题更是提示了你之前要是用了buffer位置的栈空间，这回不得行了，因为中间一段会被后面的数据覆盖掉。
 
 ![image-20220113143208036](assets/image-20220113143208036.png)
 
-那么这里我要避免我的指令代码被覆盖掉就要更仔细的规划代码插入的地方，这是buffer overflow的题，所以多半还是在buffer里面什么地方插入代码，只是我的代码要避开那段被覆盖的位置（所以就显然不能像我之前那样去写了）。我感觉，最好还是不要破坏上面没有被设为buffer的栈空间，如果碰到那个`%fs:xx`分配的位置就很尴尬了，直接报错。有问题，好像还真得往上面写，否则位置可能会不够，不过还是得先计算一下再说。
+那么这里我要避免我的指令代码被覆盖掉就要更仔细的规划代码插入的地方，这是buffer overflow的题，所以多半还是在buffer里面什么地方插入代码，只是我的代码要避开那段被覆盖的位置（所以就显然不能像我之前那样去写了）。我感觉，最好还是不要破坏上面没有被设为buffer的栈空间，如果碰到那个`%fs:xx`分配的位置就很尴尬了，直接报错。但是在后来发现的问题来看却不大对，好像还真得往上面写，否则位置可能会不够，不过还是得先计算一下再说。
 
 最后选择的方式是，从下面一开始就是可执行的代码段，然后中间可能留一些`nop`的位置让后面分配栈的时候来填充。但最好尽量往后填吧。
 
 > 记牢了，python来查看字符`c`对应的ascii是`ord(c)`，相反，是`chr(ascii)`
 
-还是13 bytes的指令。
-
-直接写的代码好像出了点问题，导致我没能传入成功字符串。
+还是13 bytes的指令。直接写的代码好像出了点问题，导致我没能传入成功字符串。
 
 ![image-20220113172700718](assets/image-20220113172700718.png)
 
@@ -624,7 +640,7 @@ https://blog.csdn.net/zstuyyyyccccbbbb/article/details/119140914
 
 ![image-20220113191959946](assets/image-20220113191959946.png)
 
-最后还是选择在上面的栈空间进行字符串的保存，然后就成功了。
+最后还是选择在上面的栈空间进行字符串的保存，然后就成功了。第三题PASS.
 
 ![image-20220113192024924](assets/image-20220113192024924.png)
 
@@ -632,7 +648,7 @@ https://blog.csdn.net/zstuyyyyccccbbbb/article/details/119140914
 
 小结一下，这三道题完全是层层递进的让你了解buffer overflow是怎样被攻击的，虽然做完之后我能意识到，这三道题完全可以都用第三题的思路来解决，但不知道是出题人设计的太好了还是怎样，或者他出题的时候真的全面的计算到了初学者下意识会如何设计攻击，以至于每一次上一道题的方式都不能直接被使用，一个是要添加指令码，一个是后续函数调用时栈的使用导致原定字符串无效，出题人似乎真的想到了我会琢磨着想把代码放在原来分配的栈里面（不论我是否是抱有尽可能不要动上面可能被保护的代码这种念头），然后第二题就让我这么做，但是第三题又恰到好处的把我第二题的方法切断一半，尝试了两种注入代码的思路最终不得不尝试着把代码写在返回地址的上面，然后成功PASS。更精巧的是，出题人专门强调了，第三题会把原来栈里面的空间覆盖写入数据，虽然我尝试着尽可能的绕开了那40个字节里可能被覆盖的位置，依然没能成功。
 
-### RATTACK
+### RTARGET
 
 我没有想到的是，这里确实会教你在当今应对buffer overflow vulnerabilities上，已经相当有防护能力的三种解决策略是如何被攻破的。
 
@@ -642,17 +658,17 @@ https://blog.csdn.net/zstuyyyyccccbbbb/article/details/119140914
 * stack corruption detection
 * limiting code executable regions
 
-上面`CTARGET`的习题只有第二条"corruption detection"被利用到了（还直接把我字符串给刚好覆盖完），剩下两个我看起来最有效的策略都没有被使用，而这道题就会教你如何在有着三重防护的基础上进行攻击。
+上面`CTARGET`的习题只有第二条"corruption detection"被利用到了（在执行过程中还直接把我字符串给刚好覆盖完），尽管也没有完全在所有位置都被使用，尤其是在有输入字符串的位置本来应该设置这一方法的。剩下两个我看起来最有效的策略还没有被使用，而这道题就会教你如何在有着这两重防护的基础上进行攻击。
 
-同时，刚刚想起来的是，这个完整的攻击代码注入工作都是没有让我进行的，也就是说我甚至没有能力在它的机器码上面进行修改，以使得执行相应的代码。等一下，要是我有它的机器码，我不是可以直接编辑然后运行就成了，为什么要做这些奇奇怪怪看似多余的操作，除非攻击是在远程的机器上进行的，甚至攻击本身也是为了调用已知的系统进程来帮助自己执行指令，并不需要注入完整的机器码函数（这也说不定）。这个问题先留在这里，等以后想起再解答吧。
-
-> Todo: 问题保留。
+同时，刚刚想起来的是，这个完整的攻击代码注入工作都是没有让我进行的，也就是说我甚至没有能力在它的机器码上面进行修改，以使得执行相应的代码。
 
 至于新的这个实验，首先我不明白这个名字是什么意思。而且到目前为止，我都只知道我能注入代码的位置就是本来用于读入字符串的位置，但仅仅这样的水平应该是不足以完成这份任务的。
 
-> Segmentation fault，这种问题我遇到好几次了，造成的原因有一部分是不可执行的代码段导致的（错误的机器指令）
+> Segmentation fault，这种问题我遇到好几次了，造成的原因有一部分是不可执行的代码段导致的（错误的机器指令，指令错误或者指令的切片位置不对）
 
 The position of injected code can vary from one run to another, due to the randomization of stack. But the existing code addresses are persistent, which must be exactly constants for process to load it into memory and can never be altered in any way. Thus, a readily method can be devised to incorporate this feature, and it can make attack the program with the protection mentioned above possible. And that is **Return-Oriented Programming (ROP)**.
+
+#### phase 4
 
 在处理这道题上，我无法得知栈中数据的绝对地址，唯一可行的利用方案就是利用`%rsp`的值。和`phase2`完全一致的部分是，我可以通过buffer overflow来往返回地址那里写值。这道题没有给`push`的编码，应该是用不到，这可能和我期望有些不符，那么这题应该就是要用不止那48 bytes我之前已经尝试使用的空间，可能我要把位置放在整个64 bytes栈上。当在`getbuf`函数里面返回的时候，这里总共只有0x18 bytes是可以预先填入数据的，含第一次的跳转地址。
 
@@ -683,9 +699,11 @@ The position of injected code can vary from one run to another, due to the rando
 +-----------------+
 ```
 
-逻辑想清楚了之后，一次成功
+逻辑想清楚了之后，一次成功，第四题PASS.
 
 ![image-20220115120526230](assets/image-20220115120526230.png)
+
+#### phase 5
 
 接下来是最后一题了，我感觉应该差不多时间，之前主要是由于没想清楚一直在走神。
 
@@ -718,6 +736,10 @@ The position of injected code can vary from one run to another, due to the rando
 这道题解决后有重新理一下匹配的格式
 
 > Todo: 字符串匹配，筛选可用的代码，对同一行进行多次检查
+
+正则表达式匹配遇到的问题是匹配规则的错漏，想要自动化需要明显的机制的更新。这个应该有相关的工具可以使用。
+
+> update: stared and forked a repo `roputils`
 
 ```assembly
 (gdb) disas
@@ -755,6 +777,8 @@ Breakpoint 4, 0x00000000004019ab in addval_219 ()
 (gdb)
 ```
 
-检查出问题，最后通过了
+检查出问题，最后通过了，第五题PASS.
 
 ![image-20220116023200785](assets/image-20220116023200785.png)
+
+折腾的过程记录在`tdraft.txt`里面了，本不应该在这些地方记录自己的草稿。
