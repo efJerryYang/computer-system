@@ -1,5 +1,17 @@
 # Computer System
 
+## Computer Organization
+
+计组实验
+
+### Content structure
+
+* labs
+  - [ ] `lab1-c2riscv` (assembly)
+  - [ ] `lab2-dec2hex` (assembly)
+  - [ ] `lab3-booth` (verilog)
+  - [ ] `lab4-cache` (verilog)
+
 ## CSAPP
 
 正在学，只做了教材练习和实验
