@@ -1,7 +1,22 @@
-#include "multiply.h"
+# 1 "src/main.c"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 31 "<command-line>"
+# 1 "/usr/riscv64-linux-gnu/include/stdc-predef.h" 1 3
+# 32 "<command-line>" 2
+# 1 "src/main.c"
+# 1 "src/multiply.h" 1
+
+
+
+typedef unsigned char uint8_t;
+typedef short unsigned int uint16_t;
+
+int printf (const char *__format, ...);
+# 2 "src/main.c" 2
 uint16_t multiply(uint16_t x, uint16_t y)
 {
-    // cast uint8_t to uint16_t to store 16-bit result
+
     uint16_t result = 0;
     while (y != 0)
     {
