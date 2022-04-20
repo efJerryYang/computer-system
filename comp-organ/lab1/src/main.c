@@ -1,7 +1,6 @@
 #include "multiply.h"
 uint16_t multiply(uint16_t x, uint16_t y)
 {
-    // cast uint8_t to uint16_t to store 16-bit result
     uint16_t result = 0;
     while (y != 0)
     {

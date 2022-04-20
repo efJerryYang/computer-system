@@ -16,7 +16,6 @@ int printf (const char *__format, ...);
 # 2 "src/main.c" 2
 uint16_t multiply(uint16_t x, uint16_t y)
 {
-
     uint16_t result = 0;
     while (y != 0)
     {
