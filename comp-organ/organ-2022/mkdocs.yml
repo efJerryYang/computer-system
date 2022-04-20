@@ -1,0 +1,83 @@
+site_name: 计算机组成原理实验（2022春季） | 哈工大（深圳）
+copyright: 'Copyright &copy; 2020 - 2022 哈尔滨工业大学（深圳）'
+repo_name: 'HITSZ-COMP2008-Course'
+repo_url: 'https://gitee.com/hitsz-cslab/organ'
+
+markdown_extensions:
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - admonition
+  - mdx_math:
+      enable_dollar_delimiter: True
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+  # - mathjaxhelper.js
+
+
+theme:
+  language: 'zh'
+  name: material
+  features:
+    - navigation.tabs
+  icon:
+    logo: fontawesome/solid/microchip
+    repo: fontawesome/brands/git-alt
+    # favicon: fontawesome/solid/microchip
+  palette:
+    primary: 'Orange'
+    accent: 'Orange'
+nav:
+  - 实验须知: 
+    - 实验介绍: index.md
+    - 实验文件夹: doc.md
+    - 实验备选平台: platform.md
+    - 实验提交说明: ojguide.md
+  - 从C语言到机器码: 
+    - 实验平台: lab1/part1.md
+    - 实验目的: lab1/part2.md
+    - 实验原理: lab1/part4.md
+    - 实验准备: lab1/part5.md
+    - 实验内容: lab1/part3.md
+    - 实验提交: lab1/part6.md
+    - 附录:
+      - 实验环境安装提示: lab1/error.md
+      - Ubuntu常用命令: lab1/appdix.md
+      - Vim常用指令: lab1/vim.md
+      - Text Editor: lab1/text.md
+  - 十进制转十六进制: 
+    - 实验平台: lab2/part1.md
+    - 实验目的: lab2/part2.md
+    - 实验内容: lab2/part3.md
+    - 实验原理: lab2/part4.md
+    - 实验提交: lab2/part5.md
+  - Booth乘法器设计:
+    - 实验平台: lab3/part1.md
+  #  - 实验目的: lab3/part2.md
+  #  - 实验内容: lab3/part3.md
+  #  - 实验原理: lab3/part4.md
+  #  - 实验准备: lab3/part5.md
+  #  - 实验提交: lab3/part6.md
+  - 直接相连Cache设计:
+    - 实验平台: lab4/part1.md
+  #  - 实验目的: lab4/part2.md
+  #  - 实验内容: lab4/part3.md
+  #  - 实验原理: lab4/part4.md
+  #  - 实验准备: lab4/part5.md
+  #  - 实验步骤: lab4/part6.md
+  #  - 实验提交: lab4/part7.md
