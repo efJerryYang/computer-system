@@ -14,6 +14,7 @@ all:
 		riscv64-linux-gnu-gcc -static src/main.c -o out/main -Og
 		@echo "command: spike \$$(which pk) ./out/main"
 		@echo "command: cat ./out/main.objdump.s"
+		@echo "command: python3 src/decoder.py out/main.objdump.s > out/main.decoder.s"
 gcc:
 		@echo "Checking.."
 		mkdir -p out
