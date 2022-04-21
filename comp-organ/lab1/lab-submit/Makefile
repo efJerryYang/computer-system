@@ -2,7 +2,7 @@
 # make			# generate all files needed and store in ./out
 # make gcc		# generate executable
 # make clean	# remove directory ./out
-.PHONY = all clean gcc
+.PHONY = all clean gcc unknown
 
 all: 
 		@echo "Checking.."
@@ -20,6 +20,18 @@ gcc:
 		mkdir -p out
 		gcc src/main.c -o out/main
 		@echo "command: ./out/main"
+
+unknown: 
+		@echo "Checking.."
+		mkdir -p out
+		riscv64-unknown-elf-gcc -E src/main.c -o out/main.i
+		riscv64-unknown-elf-gcc -S out/main.i -o out/main.s -Og
+		riscv64-unknown-elf-gcc -c out/main.s -o out/main.o -march=rv64g
+		riscv64-unknown-elf-objdump -D out/main.o > out/main.objdump.s
+		riscv64-unknown-elf-gcc -static src/main.c -o out/main -Og
+		@echo "command: spike \$$(which pk) ./out/main"
+		@echo "command: cat ./out/main.objdump.s"
+		@echo "command: python3 src/decoder.py out/main.objdump.s > out/main.decoder.s"
 clean:
 		@echo "Cleaning up..."
 		rm -rvf out/*
