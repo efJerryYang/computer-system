@@ -11,9 +11,11 @@ all:
 		riscv64-linux-gnu-gcc -static -S out/main.i -o out/main.s -Og
 		riscv64-linux-gnu-gcc -static -c out/main.s -o out/main.o -march=rv64g
 		riscv64-linux-gnu-objdump -D out/main.o > out/main.objdump.s
+		python3 src/decoder.py out/main.objdump.s > out/main.decoder.s
 		riscv64-linux-gnu-gcc -static src/main.c -o out/main -Og
 		@echo "command: spike \$$(which pk) ./out/main"
 		@echo "command: cat ./out/main.objdump.s"
+		@echo "command: cat ./out/main.decoder.s"
 gcc:
 		@echo "Checking.."
 		mkdir -p out
