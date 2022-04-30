@@ -11,7 +11,7 @@ main:
     # addiw   a0, a0, 0x15c
     lw      a0, dec_num
     auipc   t1, 0
-    jalr    x1, t1, dec2hex # call dec2hex
+    jal    t1, dec2hex # call dec2hex
     addiw   s3, a0, 0
     ld      ra, 8(sp)
     addi    sp, sp, 16
