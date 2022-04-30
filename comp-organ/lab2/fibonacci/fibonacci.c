@@ -9,8 +9,9 @@ int fibonacci(int n)
 }
 
 int main()
-{   // -Og
-    // for (int i = 1; i <= 20; i++)
-    //     printf("%d\n", fibonacci(i));
-    fibonacci(20);
+{
+    for (int i = 1; i <= 20; i++)
+    {
+        printf("%x\n", fibonacci(i));
+    }
 }
