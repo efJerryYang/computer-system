@@ -10,8 +10,7 @@ main:
     # lui     a0, 0x0bed7
     # addiw   a0, a0, 0x15c
     lw      a0, dec_num
-    auipc   t1, 0
-    jalr    x1, t1, dec2hex # call dec2hex
+    jal     x1, dec2hex # call dec2hex
     addiw   s3, a0, 0
     ld      ra, 8(sp)
     addi    sp, sp, 16
@@ -21,9 +20,9 @@ dec2hex:
     sd      s0, 24(sp)
     addi    s0, sp, 32      # s0 = sp + 32, s0 is frame pointer
     # initially, a0 has value of dec_num
-    sw       a0, -28(s0)    # dec_num store into -28(fp)
-    sw       x0, -24(s0)    # i store into -24(fp)
-    sw       x0, -32(s0)    # hex_num store into -32(fp)
+    sw      a0, -28(s0)     # dec_num store into -28(fp)
+    sw      x0, -24(s0)     # i store into -24(fp)
+    sw      x0, -32(s0)     # hex_num store into -32(fp)
 loop:
     lw      a5, -28(s0)
     andi    a5, a5, 0xf     # r = dec_num & 0xf;
@@ -38,9 +37,9 @@ loop:
     or      a5, a5, a4      # (hex_num >> 4) | (r << 28)
     sw      a5, -32(s0)     # [store] hex_num
     lw      a5, -24(s0)     
-    addiw    a5, a5, 1      # i++;
-    sw       a5, -24(s0)
-    addiw    a4, x0, 8      # li a4, 8
+    addiw   a5, a5, 1       # i++;
+    sw      a5, -24(s0) 
+    addiw   a4, x0, 8       # li a4, 8
     bne     a5, a4, loop    # if a5 != a4 then loop
     lw      a0, -32(s0)     # [load] hex_num as return value
     addi    sp, sp, 32
