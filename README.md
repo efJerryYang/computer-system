@@ -8,7 +8,7 @@
 
 * labs
   - [x] `lab1-c2riscv` (assembly)
-  - [ ] `lab2-dec2hex` (assembly)
+  - [x] `lab2-dec2hex` (assembly)
   - [ ] `lab3-booth` (verilog)
   - [ ] `lab4-cache` (verilog)
 
