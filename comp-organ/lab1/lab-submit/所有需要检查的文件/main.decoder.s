@@ -13,6 +13,8 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000000000 | 01010 |  000   | 01111 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        addi x15,x10,0
+meaning:                  x15 = x10 + 0
 
    4:	00000513          	li	a0,0
 bit-level representation:
@@ -22,6 +24,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000000000 | 00000 |  000   | 01010 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        addi x10,x0,0
+meaning:                  x10 = x0 + 0
+
 
    8:	0200006f          	j	28 <.L2>
 bit-level representation:
@@ -31,7 +36,8 @@ bit-level representation:
 +-----------------------+-------+---------+
 |  00000010000000000000 | 00000 | 1101111 |
 +-----------------------+-------+---------+
-
+basic instruction:        jal x0,0x00000020
+meaning:                  jump to .L2, and link pc+4 to x0 (actually write nothing to x0 because of zero-hard-wired register x0)
 
 000000000000000c <.L3>:
    c:	00e5053b          	addw	a0,a0,a4
@@ -42,6 +48,9 @@ bit-level representation:
 +---------+-------+-------+--------+-------+---------+
 | 0000000 | 01110 | 01010 |  000   | 01010 | 0111011 |
 +---------+-------+-------+--------+-------+---------+
+basic instruction:        addw x10,x10,x14
+meaning:                  x10 = x10 + x14, but operated as 32-bit number, ignore overflow and do sign extension to 64 bits and write to register x10
+
 
   10:	03051513          	slli	a0,a0,0x30
 bit-level representation:
@@ -51,6 +60,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000110000 | 01010 |  001   | 01010 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        slli x10,x10,0x00000030
+meaning:                  x10 = (x10 << 0x30), shift left logically 0x30 bits
+
 
   14:	03055513          	srli	a0,a0,0x30
 bit-level representation:
@@ -60,6 +72,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000110000 | 01010 |  101   | 01010 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        srli x10,x10,0x00000030
+meaning:                  x10 = (x10 >> 0x30), shift right logically 0x30 bits
+
 
   18:	0015d593          	srli	a1,a1,0x1
 bit-level representation:
@@ -69,6 +84,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000000001 | 01011 |  101   | 01011 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        srli x11,x11,1
+meaning:                  x11 = (x11 >> 1), shift right logically 1 bit
+
 
   1c:	0017979b          	slliw	a5,a5,0x1
 bit-level representation:
@@ -78,6 +96,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000000001 | 01111 |  001   | 01111 | 0011011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        slliw x15,x15,1
+meaning:                  x15 = (x15 << 1), shift left logically 1 bit as 32-bit operand, and write to x15 with sign extension to 64 bits
+
 
   20:	03079793          	slli	a5,a5,0x30
 bit-level representation:
@@ -87,6 +108,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000110000 | 01111 |  001   | 01111 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        slli x15,x15,0x00000030
+meaning:                  x15 = (x15 << 0x30), shift left logically 0x30 bits
+
 
   24:	0307d793          	srli	a5,a5,0x30
 bit-level representation:
@@ -96,6 +120,8 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000110000 | 01111 |  101   | 01111 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        srli x15,x15,0x00000030
+meaning:                  x15 = (x15 >> 0x30), shift right logically 0x30 bits
 
 
 0000000000000028 <.L2>:
@@ -107,6 +133,9 @@ bit-level representation:
 +--------------+-------+-------+--------+-------------+---------+
 |   0000000    | 00000 | 01011 |  000   |    10100    | 1100011 |
 +--------------+-------+-------+--------+-------------+---------+
+basic instruction:        beq x11,x0,0x00000014
+meaning:                  branch to .L6 when x11 equals to x0
+
 
   2c:	0015f713          	andi	a4,a1,1
 bit-level representation:
@@ -116,6 +145,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000000001 | 01011 |  111   | 01110 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        andi x14,x11,1
+meaning:                  x14 = x11 + 1
+
 
   30:	fc070ee3          	beqz	a4,c <.L3>
 bit-level representation:
@@ -125,6 +157,9 @@ bit-level representation:
 +--------------+-------+-------+--------+-------------+---------+
 |   1111110    | 00000 | 01110 |  000   |    11101    | 1100011 |
 +--------------+-------+-------+--------+-------------+---------+
+basic instruction:        beq x14,x0,0xffffffdc
+meaning:                  branch to .L3 when x14 equals to x0
+
 
   34:	00078713          	mv	a4,a5
 bit-level representation:
@@ -134,6 +169,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000000000 | 01111 |  000   | 01110 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        addi x15,x14,0
+meaning:                  x15 = x14 + 0
+
 
   38:	fd5ff06f          	j	c <.L3>
 bit-level representation:
@@ -143,6 +181,8 @@ bit-level representation:
 +-----------------------+-------+---------+
 |  11111101010111111111 | 00000 | 1101111 |
 +-----------------------+-------+---------+
+basic instruction:        jal x0,0xffffffd4
+meaning:                  jump to .L3 and link pc+4 to x0 (actually link nothing because x0 is hard-wired with 0)
 
 
 000000000000003c <.L6>:
@@ -154,6 +194,8 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000000000 | 00001 |  000   | 00000 | 1100111 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        jalr x0,x1,0
+meaning:                  write pc+4 to x0, jump to address in x1 + 0 (namely ra)
 
 
 0000000000000040 <main>:
@@ -165,6 +207,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 111111110000 | 00010 |  000   | 00010 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        addi x2,x2,0xfffffff0
+meaning:                  sp = sp + (-16), stack pointer moves downward and allocates 16 bytes for use
+
 
   44:	00113423          	sd	ra,8(sp)
 bit-level representation:
@@ -174,6 +219,9 @@ bit-level representation:
 +-----------+-------+-------+--------+----------+---------+
 |  0000000  | 00001 | 00010 |  011   |  01000   | 0100011 |
 +-----------+-------+-------+--------+----------+---------+
+basic instruction:        sd x1,8(x2)
+meaning:                  store doubleword to memery, address is sp + 8, value is in x1
+
 
   48:	01c00593          	li	a1,28
 bit-level representation:
@@ -183,6 +231,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000011100 | 00000 |  000   | 01011 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        addi x11,x0,28
+meaning:                  x11 = x0 + 28
+
 
   4c:	01c00513          	li	a0,28
 bit-level representation:
@@ -192,6 +243,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000011100 | 00000 |  000   | 01010 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        addi x10,x0,28
+meaning:                  x10 = x0 + 28
+
 
   50:	00000097          	auipc	ra,0x0
 bit-level representation:
@@ -201,6 +255,9 @@ bit-level representation:
 +----------------------+-------+---------+
 | 00000000000000000000 | 00001 | 0010111 |
 +----------------------+-------+---------+
+basic instruction:        auipc x1,0
+meaning:                  add upper 20-bit immediate to program counter, write to register x1 (ra)
+
 
   54:	000080e7          	jalr	ra # 50 <main+0x10>
 bit-level representation:
@@ -210,6 +267,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000000000 | 00001 |  000   | 00001 | 1100111 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        jalr x1,x1,0
+meaning:                  write pc+4 to x1, and jump to x1 + 0
+
 
   58:	01c00593          	li	a1,28
 bit-level representation:
@@ -219,6 +279,8 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000011100 | 00000 |  000   | 01011 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        addi x11,x0,28
+meaning:                  x11 = x0 + 28
 
   5c:	00000097          	auipc	ra,0x0
 bit-level representation:
@@ -228,6 +290,9 @@ bit-level representation:
 +----------------------+-------+---------+
 | 00000000000000000000 | 00001 | 0010111 |
 +----------------------+-------+---------+
+basic instruction:        auipc x1,0
+meaning:                  add upper 20-bit immediate to pc (here imm is simple zero), and write to x1
+
 
   60:	000080e7          	jalr	ra # 5c <main+0x1c>
 bit-level representation:
@@ -237,6 +302,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000000000 | 00001 |  000   | 00001 | 1100111 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        jalr x1,x1,0
+meaning:                  write pc+4 to x1, jump to x1 + 0
+
 
   64:	0005059b          	sext.w	a1,a0
 bit-level representation:
@@ -246,6 +314,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000000000 | 01010 |  000   | 01011 | 0011011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        addiw x11,x10,0
+meaning:                  x11 = x10 + 0, do 32-bit immediate addition, do sign extension to 64 bits and write result to x11
+
 
   68:	00000517          	auipc	a0,0x0
 bit-level representation:
@@ -255,6 +326,9 @@ bit-level representation:
 +----------------------+-------+---------+
 | 00000000000000000000 | 01010 | 0010111 |
 +----------------------+-------+---------+
+basic instruction:        auipc x10,0
+meaning:                  add upper 20-bit immediate to pc (here imm is simple zero), and write to x10
+
 
   6c:	00050513          	mv	a0,a0
 bit-level representation:
@@ -264,6 +338,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000000000 | 01010 |  000   | 01010 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        addi x10,x10,0
+meaning:                  x10 = x10 + 0
+
 
   70:	00000097          	auipc	ra,0x0
 bit-level representation:
@@ -273,6 +350,9 @@ bit-level representation:
 +----------------------+-------+---------+
 | 00000000000000000000 | 00001 | 0010111 |
 +----------------------+-------+---------+
+basic instruction:        auipc x1,0
+meaning:                  add upper 20-bit immediate to pc (here imm is simple zero), and write to x1
+
 
   74:	000080e7          	jalr	ra # 70 <main+0x30>
 bit-level representation:
@@ -282,6 +362,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000000000 | 00001 |  000   | 00001 | 1100111 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        jalr x1,x1,0
+meaning:                  write pc+4 to x1, jump to x1 + 0
+
 
   78:	00000513          	li	a0,0
 bit-level representation:
@@ -291,6 +374,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000000000 | 00000 |  000   | 01010 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        addi x10,x0,0
+meaning:                  x10 = x0 + 0
+
 
   7c:	00813083          	ld	ra,8(sp)
 bit-level representation:
@@ -300,6 +386,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000001000 | 00010 |  011   | 00001 | 0000011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        ld x1,8(x2) 
+meaning:                  load doubleword from memery address sp + 8, write to register ra
+
 
   80:	01010113          	addi	sp,sp,16
 bit-level representation:
@@ -309,6 +398,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000010000 | 00010 |  000   | 00010 | 0010011 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        addi x2,x2,16
+meaning:                  x2 = x2 + 16
+
 
   84:	00008067          	ret
 bit-level representation:
@@ -318,6 +410,9 @@ bit-level representation:
 +--------------+-------+--------+-------+---------+
 | 000000000000 | 00001 |  000   | 00000 | 1100111 |
 +--------------+-------+--------+-------+---------+
+basic instruction:        jalr x0,x1,0
+meaning:                  write pc+4 to x0, jump to x1 + 0
+
 
 
 Disassembly of section .rodata.str1.8:
