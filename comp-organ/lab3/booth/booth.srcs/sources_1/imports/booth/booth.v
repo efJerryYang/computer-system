@@ -14,8 +14,8 @@ reg [1:0] comparator; 					   // y_n, y_n+1
 reg [4:0] cnt;
 reg busy_reg;
 
-wire [1:0] t = (comparator<<1)|(z & 2'b1);
-wire tmp = comparator[1]<comparator[0] ? 1 : 0;
+wire [1:0] t = (comparator<<1)|(z & 2'b1);			// ! just used for examine signals
+wire tmp = comparator[1]<comparator[0] ? 1 : 0;			// ! just used for examine signals
 
 always @(posedge clk, negedge rst_n) begin // get input signal for x, y and negative x
 	if(~rst_n) begin
@@ -40,9 +40,9 @@ always @(posedge clk, negedge rst_n) begin // handle busy signal
 		busy_reg <= 0;
 	else if(start)
 		busy_reg <= 1;
-	else if(cnt == 14)								// Todo: add condition here
+	else if(cnt == 14)
 		busy_reg <= 0;
-	else
+	else								 // Todo: busy not correct, more condition should be added here
 		busy_reg <= 1;
 end
 
@@ -72,11 +72,11 @@ always @(posedge clk, negedge rst_n) begin // handle z and comparator
 			z <= {(({nx_reg[15], nx_reg} + z[31:15])>>16) & 1'b1, 
 				  {nx_reg[15], nx_reg} + z[31:15],    
 				  z[14:1]};
-			comparator <= {comparator[0], (z & 1'b1)};
+			comparator <= {comparator[0], (z & 1'b1)};  		// Todo: even the first period is not correct
 		end
 	end
 	else begin  // finish
-		z <= (z & 32'hbfff); // the 4 most significant bits mask = 4'b1011
+		z <= (z & 32'hbfff); // the 4 most significant bits mask = 4'b1011 // Todo: z not correct
 		comparator <= {comparator[0], comparator[1]};
 	end
 
