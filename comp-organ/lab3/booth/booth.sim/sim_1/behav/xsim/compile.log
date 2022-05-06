@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/GitHub/computer-system/comp-organ/lab3/booth/booth.srcs/sources_1/imports/booth/booth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module booth
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/GitHub/computer-system/comp-organ/lab3/booth/booth.srcs/sim_1/imports/booth/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+WARNING: [VRFC 10-756] identifier test_cnt2_end is used before its declaration [D:/Projects/GitHub/computer-system/comp-organ/lab3/booth/booth.srcs/sim_1/imports/booth/testbench.v:65]
