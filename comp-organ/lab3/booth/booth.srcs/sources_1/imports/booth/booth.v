@@ -14,11 +14,8 @@ reg [1:0] comparator; 					   // y_n, y_n+1
 reg [4:0] cnt;
 reg busy_reg;
 
-wire [1:0] t = (comparator<<1)|(z & 2'b1);			// ! just used for examine signals
-// wire [1:0] t = {comparator[0],z[0] & 1'b1};
-// wire [1:0] f = {comparator[0], (z & 1'b1)}; 			// ! just used for examine signals
-wire tmp = comparator[1]<comparator[0] ? 1 : 0;			// ! just used for examine signals
-
+wire [16:0] z_part_mul = comparator[1] > comparator[0] ? {x_reg[15], x_reg} + z[31:15] : {nx_reg[15], nx_reg} + z[31:15];
+wire [1:0] comparator_new = {comparator[0], (z[0] & 1'b1)};
 always @(posedge clk, negedge rst_n) begin // get input signal for x, y and negative x
 	if(~rst_n) begin
 		x_reg <= 0;
@@ -62,19 +59,15 @@ always @(posedge clk, negedge rst_n) begin // handle z and comparator
 	else if (cnt !=14) begin 							   // booth algorithm, 15 time operations in total
 		if(comparator[1]==comparator[0]) begin   // yn+1 == yn
 			z <= (z >>> 1);						 // z shift right arithmetical
-			comparator <= {comparator[0], (z[0] & 1'b1)};
+			comparator <= comparator_new;
 		end
 		else if (comparator[1] > comparator[0]) begin
-			z <= {(({x_reg[15], x_reg} + z[31:15])>>16) & 1'b1, // Todo: although extra bits will be discarded, better approaches can be selected
-				  {x_reg[15], x_reg} + z[31:15],    
-				  z[14:1]}; // {x_reg[15], x_reg} + z[31:15],    is a 17-bit operand
-			comparator <= {comparator[0], (z[0] & 1'b1)};
+			z <= {z_part_mul[16], z_part_mul, z[14:1]}; 	// {x_reg[15], x_reg} + z[31:15],    is a 17-bit operand
+			comparator <= comparator_new;
 		end
 		else begin
-			z <= {(({nx_reg[15], nx_reg} + z[31:15])>>16) & 1'b1, 
-				  {nx_reg[15], nx_reg} + z[31:15],    
-				  z[14:1]};
-			comparator <= {comparator[0], (z[0] & 1'b1)};  		// Todo: even the first period is not correct
+			z <= {z_part_mul[16], z_part_mul, z[14:1]};
+			comparator <= comparator_new;
 		end
 	end
 	else begin  // finish
