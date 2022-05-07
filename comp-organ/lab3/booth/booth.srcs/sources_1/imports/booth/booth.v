@@ -92,7 +92,10 @@ always @(posedge clk, negedge rst_n) begin // handle z and comparator
 		[0 1] 0 => 00 => (sign extension) [0 0] 0
 		[0 1] 1 => 01 => (sign extension) [0 0] 1
 		*/
-		z <= {z[31], z[31], z[29:0]}; 
+		if(comparator[1]==comparator[0])
+			z <= {z[31], z[31], z[29:0]}; 
+		else
+			z <= {z_part_mul[16], z_part_mul[16], z_part_mul[14:0], z[14:0]};
 		comparator <= {comparator[0], comparator[1]};
 	end
 	else begin // do nothing

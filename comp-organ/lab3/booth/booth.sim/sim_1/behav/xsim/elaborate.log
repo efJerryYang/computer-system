@@ -4,4 +4,11 @@ Running: D:/ProgLangToolkit/Xilinx/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/Projects/GitHub/computer-system/comp-organ/lab3/booth/booth.srcs/sources_1/imports/booth/booth.v" Line 1. Module booth doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.booth
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_behav
