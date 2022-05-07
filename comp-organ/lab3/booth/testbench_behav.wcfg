@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="115759171fs"></ZoomEndTime>
-      <Cursor1Time time="8000fs"></Cursor1Time>
+      <ZoomStartTime time="645550000fs"></ZoomStartTime>
+      <ZoomEndTime time="723990290fs"></ZoomEndTime>
+      <Cursor1Time time="96280000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="119"></NameColumnWidth>
-      <ValueColumnWidth column_width="73"></ValueColumnWidth>
+      <NameColumnWidth column_width="118"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="37" />
+   <WVObjectSize size="36" />
    <wvobject fp_name="/testbench/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -128,6 +128,10 @@
       <obj_property name="ElementShortName">start</obj_property>
       <obj_property name="ObjectShortName">start</obj_property>
    </wvobject>
+   <wvobject fp_name="/testbench/u_booth/on_button" type="logic">
+      <obj_property name="ElementShortName">on_button</obj_property>
+      <obj_property name="ObjectShortName">on_button</obj_property>
+   </wvobject>
    <wvobject fp_name="/testbench/u_booth/x_reg" type="array">
       <obj_property name="ElementShortName">x_reg[15:0]</obj_property>
       <obj_property name="ObjectShortName">x_reg[15:0]</obj_property>
@@ -144,10 +148,6 @@
       <obj_property name="ElementShortName">busy</obj_property>
       <obj_property name="ObjectShortName">busy</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/u_booth/busy_reg" type="logic">
-      <obj_property name="ElementShortName">busy_reg</obj_property>
-      <obj_property name="ObjectShortName">busy_reg</obj_property>
-   </wvobject>
    <wvobject fp_name="/testbench/u_booth/z" type="array">
       <obj_property name="ElementShortName">z[31:0]</obj_property>
       <obj_property name="ObjectShortName">z[31:0]</obj_property>
@@ -160,12 +160,8 @@
       <obj_property name="ElementShortName">cnt[4:0]</obj_property>
       <obj_property name="ObjectShortName">cnt[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/u_booth/t" type="logic">
-      <obj_property name="ElementShortName">t</obj_property>
-      <obj_property name="ObjectShortName">t</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/u_booth/tmp" type="logic">
-      <obj_property name="ElementShortName">tmp</obj_property>
-      <obj_property name="ObjectShortName">tmp</obj_property>
+   <wvobject fp_name="/testbench/u_booth/check_zsign" type="array">
+      <obj_property name="ElementShortName">check_zsign[1:0]</obj_property>
+      <obj_property name="ObjectShortName">check_zsign[1:0]</obj_property>
    </wvobject>
 </wave_config>
