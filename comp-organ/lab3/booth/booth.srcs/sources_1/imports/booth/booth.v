@@ -16,6 +16,15 @@ reg busy_reg;
 
 wire [16:0] z_part_mul = comparator[1] > comparator[0] ? {x_reg[15], x_reg} + z[31:15] : {nx_reg[15], nx_reg} + z[31:15];
 wire [1:0] comparator_new = {comparator[0], (z[0] & 1'b1)};
+reg on_button;
+always @(posedge clk, negedge rst_n) begin // on_button
+	if (~rst_n)
+		on_button <= 0;
+	else if(start)
+		on_button <= 1;
+	else
+		on_button <= on_button;
+end
 always @(posedge clk, negedge rst_n) begin // get input signal for x, y and negative x
 	if(~rst_n) begin
 		x_reg <= 0;
@@ -34,15 +43,14 @@ always @(posedge clk, negedge rst_n) begin // get input signal for x, y and nega
 	end
 end
 
+assign busy = busy_reg;
 always @(posedge clk, negedge rst_n) begin // handle busy signal
 	if (~rst_n)
 		busy_reg <= 0;
-	else if(start)
+	else if(start || (on_button && cnt < 15))
 		busy_reg <= 1;
-	else if(cnt == 15)
+	else
 		busy_reg <= 0;
-	else								 // Todo: busy not correct, more condition should be added here
-		busy_reg <= 1;
 end
 
 always @(posedge clk, negedge rst_n) begin // handle z and comparator
@@ -82,7 +90,7 @@ end
 
 
 always @(posedge clk, negedge rst_n) begin
-	if(~rst_n)
+	if(~rst_n||~on_button)
 		cnt <= 0;
 	else if (start)
 		cnt <= 0; 
@@ -91,5 +99,4 @@ always @(posedge clk, negedge rst_n) begin
 	else 
 		cnt <= cnt;
 end
-assign busy = busy_reg;
 endmodule
