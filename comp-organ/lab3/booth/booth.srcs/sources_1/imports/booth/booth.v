@@ -13,10 +13,12 @@ reg [15:0] nx_reg;
 reg [1:0] comparator; 					   // y_n, y_n+1
 reg [4:0] cnt;
 reg busy_reg;
+reg on_button;
 
 wire [16:0] z_part_mul = comparator[1] > comparator[0] ? {x_reg[15], x_reg} + z[31:15] : {nx_reg[15], nx_reg} + z[31:15];
 wire [1:0] comparator_new = {comparator[0], (z[0] & 1'b1)};
-reg on_button;
+
+wire [1:0] check_zsign = z[31:30];
 always @(posedge clk, negedge rst_n) begin // on_button
 	if (~rst_n)
 		on_button <= 0;
@@ -66,7 +68,7 @@ always @(posedge clk, negedge rst_n) begin // handle z and comparator
 	end
 	else if (cnt < 15) begin 							   // booth algorithm, 15 time operations in total
 		if(comparator[1]==comparator[0]) begin   // yn+1 == yn
-			z <= (z >>> 1);						 // z shift right arithmetical
+			z <= ($signed(z) >>> 1);						 // signed(z) shift right arithmetical
 			comparator <= comparator_new;
 		end
 		else if (comparator[1] > comparator[0]) begin
@@ -79,10 +81,21 @@ always @(posedge clk, negedge rst_n) begin // handle z and comparator
 		end
 	end
 	else if (cnt == 15) begin  // finish
-		z <= (z & 32'hbfff); // the 4 most significant bits mask = 4'b1011 // Todo: z not correct
+		/*
+		[1 1] 0 => 10 => (sign extension) [1 1] 0
+		[1 1] 1 => 11 => (sign extension) [1 1] 1
+		[0 0] 0 => 00 => (sign extension) [0 0] 0
+		[0 0] 1 => 01 => (sign extension) [0 0] 1
+
+		[1 0] 0 => 10 => (sign extension) [1 1] 0
+		[1 0] 1 => 11 => (sign extension) [1 1] 1
+		[0 1] 0 => 00 => (sign extension) [0 0] 0
+		[0 1] 1 => 01 => (sign extension) [0 0] 1
+		*/
+		z <= {z[31], z[31], z[29:0]}; 
 		comparator <= {comparator[0], comparator[1]};
 	end
-	else begin
+	else begin // do nothing
 		z <= z;
 		comparator <= comparator;
 	end
