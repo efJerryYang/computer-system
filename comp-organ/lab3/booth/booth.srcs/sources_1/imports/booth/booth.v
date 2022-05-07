@@ -39,7 +39,7 @@ always @(posedge clk, negedge rst_n) begin // handle busy signal
 		busy_reg <= 0;
 	else if(start)
 		busy_reg <= 1;
-	else if(cnt == 14)
+	else if(cnt == 15)
 		busy_reg <= 0;
 	else								 // Todo: busy not correct, more condition should be added here
 		busy_reg <= 1;
@@ -56,7 +56,7 @@ always @(posedge clk, negedge rst_n) begin // handle z and comparator
 		z <= (y >> 1); 				   // >>> shift right arithemtical, >> shift right logical
 		comparator <= (y & 1'b1);	   // index: [ 1 | 0 ] --- [ yn+1 | yn ]
 	end
-	else if (cnt !=14) begin 							   // booth algorithm, 15 time operations in total
+	else if (cnt < 15) begin 							   // booth algorithm, 15 time operations in total
 		if(comparator[1]==comparator[0]) begin   // yn+1 == yn
 			z <= (z >>> 1);						 // z shift right arithmetical
 			comparator <= comparator_new;
@@ -70,22 +70,26 @@ always @(posedge clk, negedge rst_n) begin // handle z and comparator
 			comparator <= comparator_new;
 		end
 	end
-	else begin  // finish
+	else if (cnt == 15) begin  // finish
 		z <= (z & 32'hbfff); // the 4 most significant bits mask = 4'b1011 // Todo: z not correct
 		comparator <= {comparator[0], comparator[1]};
 	end
-
+	else begin
+		z <= z;
+		comparator <= comparator;
+	end
 end
+
 
 always @(posedge clk, negedge rst_n) begin
 	if(~rst_n)
 		cnt <= 0;
 	else if (start)
 		cnt <= 0; 
-	else if (cnt != 14)
+	else if (cnt != 15)
 		cnt <= cnt+1;
 	else 
-		cnt <= 0;
+		cnt <= cnt;
 end
 assign busy = busy_reg;
 endmodule
