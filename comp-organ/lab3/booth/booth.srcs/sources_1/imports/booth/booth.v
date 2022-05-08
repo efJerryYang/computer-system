@@ -15,7 +15,10 @@ reg [4:0] cnt;
 reg busy_reg;
 reg on_button;
 
-wire [16:0] z_part_mul = comparator[1] > comparator[0] ? {x_reg[15], x_reg} + z[31:15] : {nx_reg[15], nx_reg} + z[31:15];
+wire [16:0] z_part_mul =
+		comparator[1] == comparator[0] ? z[31:15]: 							// yn+1 == yn
+		comparator[1] > comparator[0] ? {x_reg[15], x_reg} + z[31:15] : 	// yn+1 > yn
+		{nx_reg[15], nx_reg} + z[31:15];									// yn+1 < yn
 wire [1:0] comparator_new = {comparator[0], (z[0] & 1'b1)};
 
 wire [1:0] check_zsign = z[31:30];
@@ -67,18 +70,8 @@ always @(posedge clk, negedge rst_n) begin // handle z and comparator
 		comparator <= (y & 1'b1);	   // index: [ 1 | 0 ] --- [ yn+1 | yn ]
 	end
 	else if (cnt < 15) begin 							   // booth algorithm, 15 time operations in total
-		if(comparator[1]==comparator[0]) begin   // yn+1 == yn
-			z <= ($signed(z) >>> 1);						 // signed(z) shift right arithmetical
-			comparator <= comparator_new;
-		end
-		else if (comparator[1] > comparator[0]) begin
-			z <= {z_part_mul[16], z_part_mul, z[14:1]}; 	// {x_reg[15], x_reg} + z[31:15],    is a 17-bit operand
-			comparator <= comparator_new;
-		end
-		else begin
-			z <= {z_part_mul[16], z_part_mul, z[14:1]};
-			comparator <= comparator_new;
-		end
+		z <= {z_part_mul[16], z_part_mul, z[14:1]};						 // signed(z) shift right arithmetical
+		comparator <= comparator_new;
 	end
 	else if (cnt == 15) begin  // finish
 		/*
@@ -96,7 +89,7 @@ always @(posedge clk, negedge rst_n) begin // handle z and comparator
 			z <= {z[31], z[31], z[29:0]}; 
 		else
 			z <= {z_part_mul[16], z_part_mul[16], z_part_mul[14:0], z[14:0]};
-		comparator <= {comparator[0], comparator[1]};
+		comparator <= {comparator[0], comparator[1]};  // Todo: why this?
 	end
 	else begin // do nothing
 		z <= z;
