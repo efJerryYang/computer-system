@@ -22,13 +22,13 @@ reg busy_reg;
 reg on_button;
 
 wire [16:0] z_part_mul = 
-            comparator == 3'b000 ? z[31:15] : 
-            comparator == 3'b100 ? {x_reg[15], x_reg} + z[31:15]: 
-            comparator == 3'b010 ? {x_reg[15], x_reg} + z[31:15]:
-            comparator == 3'b110 ? {x_reg[15], x_reg} + {x_reg[15], x_reg} + z[31:15]:
-            comparator == 3'b001 ? {nx_reg[15], nx_reg} + {nx_reg[15], nx_reg} + z[31:15]:
-            comparator == 3'b101 ? {nx_reg[15], nx_reg} + z[31:15]:
-            comparator == 3'b011 ? {nx_reg[15], nx_reg} + z[31:15]:z[31:15];
+            comparator == 3'b000 ? z[30:14] : 
+            comparator == 3'b100 ? {x_reg[15], x_reg} + z[30:14]: 
+            comparator == 3'b010 ? {x_reg[15], x_reg} + z[30:14]:
+            comparator == 3'b110 ? {x_reg[15], x_reg} + {x_reg[15], x_reg} + z[30:14]:
+            comparator == 3'b001 ? {nx_reg[15], nx_reg} + {nx_reg[15], nx_reg} + z[30:14]:
+            comparator == 3'b101 ? {nx_reg[15], nx_reg} + z[30:14]:
+            comparator == 3'b011 ? {nx_reg[15], nx_reg} + z[30:14]:z[30:14];
 wire [2:0] comparator_new = {comparator[0], z[0], z[1]};
 
 assign busy = busy_reg;
@@ -89,22 +89,11 @@ always @(posedge clk, negedge rst_n) begin // handle z and comparator
         comparator <= {1'b0, y[0], y[1]};       // index: [ 1 | 0 ] --- [ yn+1 | yn ]
     end
     else if (on_button && cnt < CNT_MAX) begin                                // booth algorithm, 7 time operations in total
-        z_reg <= {z_part_mul[16], z_part_mul[16], z_part_mul, z[14:2]};                         // signed(z) shift right arithmetical
+        z_reg <= {z_part_mul[16], z_part_mul[16], z_part_mul, z[13:2]};                         // signed(z) shift right arithmetical
         comparator <= comparator_new;
     end
     else if (on_button && cnt == CNT_MAX && busy) begin  // finish
-        /*
-        [1 1] 0 => 10 => (sign extension) [1 1] 0
-        [1 1] 1 => 11 => (sign extension) [1 1] 1
-        [0 0] 0 => 00 => (sign extension) [0 0] 0
-        [0 0] 1 => 01 => (sign extension) [0 0] 1
-
-        [1 0] 0 => 10 => (sign extension) [1 1] 0
-        [1 0] 1 => 11 => (sign extension) [1 1] 1
-        [0 1] 0 => 00 => (sign extension) [0 0] 0
-        [0 1] 1 => 01 => (sign extension) [0 0] 1
-        */
-		z_reg <= {z_part_mul[16], z_part_mul, z[14:1]};
+		z_reg <= {z_part_mul[16], z_part_mul, z[13:0]}; // do not shift right
         comparator <= comparator_new;
     end
     else begin // do nothing

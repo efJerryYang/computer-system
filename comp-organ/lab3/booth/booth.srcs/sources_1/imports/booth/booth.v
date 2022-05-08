@@ -79,18 +79,7 @@ always @(posedge clk, negedge rst_n) begin // handle z and comparator
         comparator <= comparator_new;
     end
     else if (on_button && cnt == CNT_MAX && busy) begin  // finish
-        /*
-        [1 1] 0 => 10 => (sign extension) [1 1] 0
-        [1 1] 1 => 11 => (sign extension) [1 1] 1
-        [0 0] 0 => 00 => (sign extension) [0 0] 0
-        [0 0] 1 => 01 => (sign extension) [0 0] 1
-
-        [1 0] 0 => 10 => (sign extension) [1 1] 0
-        [1 0] 1 => 11 => (sign extension) [1 1] 1
-        [0 1] 0 => 00 => (sign extension) [0 0] 0
-        [0 1] 1 => 01 => (sign extension) [0 0] 1
-        */
-        z <= {z_part_mul[16], z_part_mul[16], z_part_mul[14:0], z[14:0]};
+        z <= {z_part_mul, z[14:0]};			// do not shift right
         comparator <= comparator_new;  
     end
     else begin // do nothing
