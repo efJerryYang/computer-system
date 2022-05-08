@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="645550000fs"></ZoomStartTime>
-      <ZoomEndTime time="723990290fs"></ZoomEndTime>
-      <Cursor1Time time="96280000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="208800001fs"></ZoomEndTime>
+      <Cursor1Time time="81800000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="118"></NameColumnWidth>
+      <NameColumnWidth column_width="110"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="36" />
+   <WVObjectSize size="35" />
    <wvobject fp_name="/testbench/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -140,6 +140,10 @@
       <obj_property name="ElementShortName">y_reg[15:0]</obj_property>
       <obj_property name="ObjectShortName">y_reg[15:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/testbench/u_booth/nx_reg" type="array">
+      <obj_property name="ElementShortName">nx_reg[15:0]</obj_property>
+      <obj_property name="ObjectShortName">nx_reg[15:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/testbench/u_booth/comparator" type="array">
       <obj_property name="ElementShortName">comparator[1:0]</obj_property>
       <obj_property name="ObjectShortName">comparator[1:0]</obj_property>
@@ -152,16 +156,8 @@
       <obj_property name="ElementShortName">z[31:0]</obj_property>
       <obj_property name="ObjectShortName">z[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/u_booth/nx_reg" type="array">
-      <obj_property name="ElementShortName">nx_reg[15:0]</obj_property>
-      <obj_property name="ObjectShortName">nx_reg[15:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/testbench/u_booth/cnt" type="array">
       <obj_property name="ElementShortName">cnt[4:0]</obj_property>
       <obj_property name="ObjectShortName">cnt[4:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/u_booth/check_zsign" type="array">
-      <obj_property name="ElementShortName">check_zsign[1:0]</obj_property>
-      <obj_property name="ObjectShortName">check_zsign[1:0]</obj_property>
    </wvobject>
 </wave_config>
