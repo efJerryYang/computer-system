@@ -9,7 +9,7 @@
 * labs
   - [x] `lab1-c2riscv` (assembly)
   - [x] `lab2-dec2hex` (assembly)
-  - [ ] `lab3-booth` (verilog)
+  - [x] `lab3-booth` (verilog)
   - [ ] `lab4-cache` (verilog)
 
 ## CSAPP
