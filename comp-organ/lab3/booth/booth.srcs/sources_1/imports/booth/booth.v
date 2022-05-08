@@ -73,7 +73,7 @@ always @(posedge clk, negedge rst_n) begin // handle z and comparator
         z <= {z_part_mul[16], z_part_mul, z[14:1]};                         // signed(z) shift right arithmetical
         comparator <= comparator_new;
     end
-    else if (cnt == 15) begin  // finish
+    else if (cnt == 15 && busy) begin  // finish
         /*
         [1 1] 0 => 10 => (sign extension) [1 1] 0
         [1 1] 1 => 11 => (sign extension) [1 1] 1
@@ -89,7 +89,7 @@ always @(posedge clk, negedge rst_n) begin // handle z and comparator
             z <= {z[31], z[31], z[29:0]}; 
         else
             z <= {z_part_mul[16], z_part_mul[16], z_part_mul[14:0], z[14:0]};
-        comparator <= {comparator[0], comparator[1]};  // Todo: why this?
+        comparator <= comparator_new;  
     end
     else begin // do nothing
         z <= z;
