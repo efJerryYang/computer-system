@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="208800001fs"></ZoomEndTime>
+      <ZoomEndTime time="322212952fs"></ZoomEndTime>
       <Cursor1Time time="81800000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="110"></NameColumnWidth>
+      <NameColumnWidth column_width="106"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="35" />
+   <WVObjectSize size="36" />
    <wvobject fp_name="/testbench/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -151,6 +151,10 @@
    <wvobject fp_name="/testbench/u_booth/busy" type="logic">
       <obj_property name="ElementShortName">busy</obj_property>
       <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/u_booth/z_pp" type="array">
+      <obj_property name="ElementShortName">z_pp[16:0]</obj_property>
+      <obj_property name="ObjectShortName">z_pp[16:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/u_booth/z" type="array">
       <obj_property name="ElementShortName">z[31:0]</obj_property>

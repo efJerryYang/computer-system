@@ -1,0 +1,7 @@
+Vivado Simulator 2018.2
+Time resolution is 1 ps
+test 8 finished
+====================================
+Test end!
+----PASS!!!
+$finish called at time : 1295 ns : File "D:/Projects/GitHub/computer-system/comp-organ/lab3/booth2/booth2.srcs/sim_1/imports/booth2/testbench.v" Line 170
