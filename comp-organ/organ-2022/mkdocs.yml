@@ -85,11 +85,8 @@ nav:
     - 实验原理: lab3/part4.md
     - 实验准备: lab3/part5.md
     - 实验提交: lab3/part6.md
-  - 直接相连Cache设计:
-    - 实验平台: lab4/part1.md
-  #  - 实验目的: lab4/part2.md
-  #  - 实验内容: lab4/part3.md
-  #  - 实验原理: lab4/part4.md
-  #  - 实验准备: lab4/part5.md
-  #  - 实验步骤: lab4/part6.md
-  #  - 实验提交: lab4/part7.md
+  - 直接映射Cache设计:
+    - 实验概述: lab4/part1.md
+    - 实验原理: lab4/part4.md
+    - 实验步骤: lab4/part6.md
+    - 实验提交: lab4/part7.md
