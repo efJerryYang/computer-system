@@ -1,0 +1,131 @@
+/*
+
+Xilinx Vivado v2018.3 (64-bit) [Major: 2018, Minor: 3]
+SW Build: 2405991 on Thu Dec  6 23:38:27 MST 2018
+IP Build: 2404404 on Fri Dec  7 01:43:56 MST 2018
+
+Process ID (PID): 4340
+License: Customer
+
+Current time: 	Fri May 13 15:03:17 CST 2022
+Time zone: 	China Standard Time (Asia/Shanghai)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 16
+
+Screen size: 1920x1080
+Screen resolution (DPI): 120
+Available screens: 1
+Available disk space: 86 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=15
+
+Java version: 	9.0.4 64-bit
+Java home: 	D:/ProgLangToolkit/Xilinx/Vivado/2018.3/tps/win64/jre9.0.4
+Java executable location: 	D:/ProgLangToolkit/Xilinx/Vivado/2018.3/tps/win64/jre9.0.4/bin/java.exe
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	JerryYang
+User home directory: C:/Users/JerryYang
+User working directory: D:/Projects/GitHub/computer-system/comp-organ/lab4/cache
+User country: 	CN
+User language: 	zh
+User locale: 	zh_CN
+
+RDI_BASEROOT: D:/ProgLangToolkit/Xilinx/Vivado
+HDI_APPROOT: D:/ProgLangToolkit/Xilinx/Vivado/2018.3
+RDI_DATADIR: D:/ProgLangToolkit/Xilinx/Vivado/2018.3/data
+RDI_BINDIR: D:/ProgLangToolkit/Xilinx/Vivado/2018.3/bin
+
+Vivado preferences file location: C:/Users/JerryYang/AppData/Roaming/Xilinx/Vivado/2018.3/vivado.xml
+Vivado preferences directory: C:/Users/JerryYang/AppData/Roaming/Xilinx/Vivado/2018.3/
+Vivado layouts directory: C:/Users/JerryYang/AppData/Roaming/Xilinx/Vivado/2018.3/layouts
+PlanAhead jar file location: 	D:/ProgLangToolkit/Xilinx/Vivado/2018.3/lib/classes/planAhead.jar
+Vivado log file location: 	D:/Projects/GitHub/computer-system/comp-organ/lab4/cache/vivado.log
+Vivado journal file location: 	D:/Projects/GitHub/computer-system/comp-organ/lab4/cache/vivado.jou
+Engine tmp dir: 	D:/Projects/GitHub/computer-system/comp-organ/lab4/cache/.Xil/Vivado-4340-LAPTOP-LMAMBQ2N
+
+Xilinx Environment Variables
+----------------------------
+XILINX: D:/ProgLangToolkit/Xilinx/Vivado/2018.3/ids_lite/ISE
+XILINX_DSP: D:/ProgLangToolkit/Xilinx/Vivado/2018.3/ids_lite/ISE
+XILINX_PLANAHEAD: D:/ProgLangToolkit/Xilinx/Vivado/2018.3
+XILINX_SDK: D:/ProgLangToolkit/Xilinx/SDK/2018.3
+XILINX_VIVADO: D:/ProgLangToolkit/Xilinx/Vivado/2018.3
+XILINX_VIVADO_HLS: D:/ProgLangToolkit/Xilinx/Vivado/2018.3
+
+
+GUI allocated memory:	154 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 656 MB
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// [GUI Memory]: 84 MB (+85467kb) [00:00:06]
+// [Engine Memory]: 562 MB (+438176kb) [00:00:06]
+// bx (cp):  Open Project : addNotify
+// Opening Vivado Project: D:\Projects\GitHub\computer-system\comp-organ\lab4\cache\cache.xpr. Version: Vivado v2018.3 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project D:/Projects/GitHub/computer-system/comp-organ/lab4/cache/cache.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 656 MB. GUI used memory: 49 MB. Current time: 5/13/22, 3:03:19 PM CST
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 97 MB (+9419kb) [00:00:12]
+// [Engine Memory]: 701 MB (+116095kb) [00:00:12]
+// WARNING: HEventQueue.dispatchEvent() is taking  3164 ms.
+// Tcl Message: open_project D:/Projects/GitHub/computer-system/comp-organ/lab4/cache/cache.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from 'D:/cache' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/ProgLangToolkit/Xilinx/Vivado/2018.3/data/ip'. 
+// Project name: cache; location: D:/Projects/GitHub/computer-system/comp-organ/lab4/cache; part: xc7vx485tffg1157-1
+// [GUI Memory]: 106 MB (+4135kb) [00:00:15]
+// [Engine Memory]: 744 MB (+8373kb) [00:00:15]
+// Tcl Message: open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 810.855 ; gain = 164.348 
+dismissDialog("Open Project"); // bx (cp)
+// Tcl Message: update_compile_order -fileset sources_1 
+// [GUI Memory]: 113 MB (+1863kb) [00:00:20]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files]", 1, true); // B (D, cp) - Node
+// PAPropertyPanels.initPanels (driver.sv) elapsed time: 0.2s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, driver (driver.sv)]", 2, true); // B (D, cp) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, driver (driver.sv)]", 2, true); // B (D, cp) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, driver (driver.sv)]", 2, true, false, false, false, false, true); // B (D, cp) - Double Click - Node
+// Launch External Editor: 'D:/ProgLangToolkit/VisualStudioCode/Code.exe -g "D:/Projects/GitHub/computer-system/comp-organ/lab4/cache/driver.sv":1'
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 705 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files]", 1); // B (D, cp)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, cache.v]", 2, false); // B (D, cp)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, cache.v]", 2, false, false, false, false, false, true); // B (D, cp) - Double Click
+// Launch External Editor: 'D:/ProgLangToolkit/VisualStudioCode/Code.exe -g "D:/Projects/GitHub/computer-system/comp-organ/lab4/cache/cache.v":0'
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
