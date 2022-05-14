@@ -151,6 +151,7 @@ wire [31:0] wdata_to_cache = offset == 2'b00 ? {1'b1, tag_from_cpu, cache_line[3
                              rdata_from_mem;
 assign cache_line_r = wreq_from_cpu ? {1'b1, tag_from_cpu, wdata_to_cache} : {1'b1, tag_from_cpu, rdata_from_mem};
 
+// 这个状态机其实可以和上面的那个状态机合并成一个，因为事实上就是同一个状态机的不同部分，这里拆出来是为了阅读方便
 always @(posedge clk) begin
     if (reset) begin
         wreq_to_mem  <= 0;
