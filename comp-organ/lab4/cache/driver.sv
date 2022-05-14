@@ -89,7 +89,7 @@ enum logic [3:0] { IDLE         = 4'h0,
                    WR_TEST_PASS = 4'h9,
                    TEST_FAIL    = 4'hF } current_state, next_state;
 
-// çŠ¶æ€è½¬ç§»é€»è¾‘               
+// ×´Ì¬×ªÒÆÂß¼­               
 always @(posedge clk) begin
     if (reset) begin
         current_state <= IDLE;
@@ -98,7 +98,7 @@ always @(posedge clk) begin
     end
 end
 
-// å¦‚æœå½“å‰çŠ¶æ€æ˜¯ç­‰å¾…Cacheï¼Œå¹¶ä¸”Cacheæ•°æ®å¯ç”¨ï¼Œåˆ™å¯ä»¥é‡‡é›†Cacheçš„æ•°æ®
+// Èç¹ûµ±Ç°×´Ì¬ÊÇµÈ´ıCache£¬²¢ÇÒCacheÊı¾İ¿ÉÓÃ£¬Ôò¿ÉÒÔ²É¼¯CacheµÄÊı¾İ
 always @(posedge clk) begin
     if (reset) begin
         data_from_cache <= 0;
@@ -109,7 +109,7 @@ always @(posedge clk) begin
     end
 end
 
-// trace ramä¸€ä¸ªå‘¨æœŸå¯ä»¥è¯»å‡ºæ•°æ®
+// trace ramÒ»¸öÖÜÆÚ¿ÉÒÔ¶Á³öÊı¾İ
 always @(posedge clk) begin
     if (reset) begin
         data_from_trace <= 0;
@@ -130,14 +130,14 @@ always @(*) begin
         end
         READ_CACHE: begin
             if (cache_hit) begin
-                next_state = RES_COMPARE;           // CacheæˆåŠŸè¿”å›æ•°æ®ï¼Œå¯ä»¥è¿›è¡Œä¸‹ä¸€æ­¥æ¯”å¯¹
+                next_state = RES_COMPARE;           // Cache³É¹¦·µ»ØÊı¾İ£¬¿ÉÒÔ½øĞĞÏÂÒ»²½±È¶Ô
             end else begin   
                 next_state = READ_CACHE;
             end
         end
         RES_COMPARE: begin
             if (data_from_cache == data_from_trace && !rd_test_success) begin
-                if (test_addr == end_addr) begin    // æµ‹è¯•å®Œæ¯•
+                if (test_addr == end_addr) begin    // ²âÊÔÍê±Ï
                     next_state = RD_TEST_PASS;
                 end else begin
                     next_state = READ_TRACE;
@@ -196,7 +196,7 @@ always @(*) begin
     endcase
 end
 
-// æ€§èƒ½è®¡æ•°å™¨
+// ĞÔÄÜ¼ÆÊıÆ÷
 always @(posedge clk) begin
     if (reset) begin  
         count <= 0;
@@ -207,7 +207,7 @@ always @(posedge clk) begin
     end
 end
 
-// ç”Ÿæˆå†™Cacheæµ‹è¯•çš„åœ°å€
+// Éú³ÉĞ´Cache²âÊÔµÄµØÖ·
 always @(posedge clk) begin
     if (reset) begin
         random_num       <= $random;
@@ -223,7 +223,7 @@ always @(posedge clk) begin
     end
 end
 
-// åœ¨äºŒæ®µçŠ¶æ€æœºæ”¹å†™æˆä¸‰æ®µçš„è¿‡ç¨‹ä¸­ï¼Œéœ€è¦æ³¨æ„çŠ¶æ€æœºåŸæœ‰çš„ç”±æ—¶åºé€»è¾‘è¾“å‡ºçš„ä¿¡å·éœ€è¦æ”¹å†™æˆç»„åˆé€»è¾‘
+// ÔÚ¶ş¶Î×´Ì¬»ú¸ÄĞ´³ÉÈı¶ÎµÄ¹ı³ÌÖĞ£¬ĞèÒª×¢Òâ×´Ì¬»úÔ­ÓĞµÄÓÉÊ±ĞòÂß¼­Êä³öµÄĞÅºÅĞèÒª¸ÄĞ´³É×éºÏÂß¼­
 always @(posedge clk) begin
     if (reset) begin
         test_addr       <= 0;

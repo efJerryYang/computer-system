@@ -36,46 +36,46 @@ always #10 clk = ~clk;
 
 always @(posedge clk) begin
     if (g0.current_state == 4'h1)
-        $display("è®¿é—®åœ°å€ä¸º",g0.test_addr);
+        $display("·ÃÎÊµØÖ·Îª",g0.test_addr);
     if (g0.current_state == 4'h2 && g0.next_state == 4'h2 && !g0.cache_whit)
-        $display("ç­‰å¾…Cacheå“åº”ï¼Œåº”å¾—åˆ°æ•°æ®",g0.data_from_trace);
+        $display("µÈ´ıCacheÏìÓ¦£¬Ó¦µÃµ½Êı¾İ",g0.data_from_trace);
     if (g0.current_state == 4'h2 && g0.next_state == 4'h2 && g0.cache_whit)
-        $display("ç­‰å¾…Cacheå“åº”ï¼Œåº”å¾—åˆ°æ•°æ®",g0.cache_wdata);
+        $display("µÈ´ıCacheÏìÓ¦£¬Ó¦µÃµ½Êı¾İ",g0.cache_wdata);
     if (g0.current_state == 4'h2 && g0.cache_hit)
-        $display("Cacheè¯»å‘½ä¸­!");
+        $display("Cache¶ÁÃüÖĞ!");
     if (g0.current_state == 4'h3)
-        $display("Cacheå·²å–å›æ•°æ®", g0.data_from_cache);
+        $display("CacheÒÑÈ¡»ØÊı¾İ", g0.data_from_cache);
     if (g0.current_state == 4'h3 && (g0.next_state == 4'h1 && !rd_test_success || g0.next_state == 4'h5 && rd_test_success))
-        $display("è¯¥åœ°å€æµ‹è¯•æ­£ç¡®ï¼Œå°†æµ‹è¯•ä¸‹ä¸€ä¸ªåœ°å€\n ----------- ");
+        $display("¸ÃµØÖ·²âÊÔÕıÈ·£¬½«²âÊÔÏÂÒ»¸öµØÖ·\n ----------- ");
     if (g0.current_state == 4'h5)
-        $display("å†™åœ°å€ä¸º%dï¼Œå†™æ•°æ®ä¸º%d", g0.test_addr, g0.cache_wdata);
+        $display("Ğ´µØÖ·Îª%d£¬Ğ´Êı¾İÎª%d", g0.test_addr, g0.cache_wdata);
     if (g0.current_state == 4'h6 && g0.cache_hit)
-        $display("Cacheå†™å‘½ä¸­!");
+        $display("CacheĞ´ÃüÖĞ!");
     if (g0.current_state == 4'h6 && !g0.cache_hit)
-        $display("Cacheå†™ç¼ºå¤±!");
+        $display("CacheĞ´È±Ê§!");
     if (g0.current_state == 4'h8 && g0.next_state != 4'h8)
-        $display("å½“å‰Cacheè¡Œè¢«æ›¿æ¢");
+        $display("µ±Ç°CacheĞĞ±»Ìæ»»");
 end
 
 always @(posedge clk) begin
     if (rd_test_success & !f0) begin
         $fwrite(fp_w, "CACHE-READING TEST PASSED\n");
         $fwrite(fp_w, "Cycles spent on reading cache: %d\n", count);
-        $display("=======================è¯»Cacheæµ‹è¯•å…¨éƒ¨é€šè¿‡=========================");
+        $display("=======================¶ÁCache²âÊÔÈ«²¿Í¨¹ı=========================");
         f0 <= 1;
     end
     if (test_success) begin
         $fwrite(fp_w, "CACHE-WRITING-HIT TEST PASSED\n");
         $fclose(fp_w);
-        $display("=======================Cacheå†™æµ‹è¯•å…¨éƒ¨é€šè¿‡=========================");
-        $display("========================æ‰€æœ‰æµ‹è¯•å…¨éƒ¨é€šè¿‡ï¼==========================");
+        $display("=======================CacheĞ´²âÊÔÈ«²¿Í¨¹ı=========================");
+        $display("========================ËùÓĞ²âÊÔÈ«²¿Í¨¹ı£¡==========================");
         $stop;
     end
     if (test_fail) begin   
         $fwrite(fp_w, "TEST FAILED\n");
         $fwrite(fp_w, "At read addr %x, expect %x, but get %x\n", g0.test_addr, g0.data_from_trace, g0.data_from_cache);
         $fclose(fp_w);
-        $display("==========================æµ‹è¯•æœªé€šè¿‡ï¼Œå…·ä½“è¯·çœ‹ä¸Šé¢è°ƒè¯•ä¿¡æ¯==========================");
+        $display("==========================²âÊÔÎ´Í¨¹ı£¬¾ßÌåÇë¿´ÉÏÃæµ÷ÊÔĞÅÏ¢==========================");
         $stop;
     end
 end

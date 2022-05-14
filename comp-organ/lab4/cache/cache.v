@@ -1,26 +1,26 @@
 `timescale 1ns / 1ps
 
 module cache (
-    // å…¨å±€ä¿¡å·
+    // È«¾ÖĞÅºÅ
     input             clk,
     input             reset,
-    // ä»CPUæ¥çš„è®¿é—®ä¿¡å·
-    input wire [12:0] addr_from_cpu,    // CPUä¾†çš„åœ°å€
-    input wire        rreq_from_cpu,    // CPUæ¥çš„è¯»è¯·æ±‚
-    input wire        wreq_from_cpu,    // CPUæ¥çš„å†™è¯·æ±‚
-    input wire [ 7:0] wdata_from_cpu,   // CPUæ¥çš„å†™æ•°æ®
-    // ä»ä¸‹å±‚å†…å­˜æ¨¡å—æ¥çš„ä¿¡å·
-    input wire [31:0] rdata_from_mem,   // å†…å­˜è¯»å–çš„æ•°æ®
-    input wire        rvalid_from_mem,  // å†…å­˜è¯»å–æ•°æ®å¯ç”¨æ ‡å¿—
-    // è¾“å‡ºç»™CPUçš„ä¿¡å·
-    output wire [7:0] rdata_to_cpu,     // è¾“å‡ºç»™CPUçš„æ•°æ®
-    output wire       hit_to_cpu,       // è¾“å‡ºç»™CPUçš„å‘½ä¸­æ ‡å¿—
-    // è¾“å‡ºç»™ä¸‹å±‚å†…å­˜æ¨¡å—çš„ä¿¡å·
-    output reg        rreq_to_mem,      // è¾“å‡ºç»™ä¸‹å±‚å†…å­˜æ¨¡å—çš„è¯»è¯·æ±‚
-    output reg [12:0] raddr_to_mem,     // è¾“å‡ºç»™ä¸‹å±‚æ¨¡å—çš„çªå‘ä¼ è¾“é¦–åœ°å€
-    output reg        wreq_to_mem,      // è¾“å‡ºç»™ä¸‹å±‚å†…å­˜æ¨¡å—çš„å†™è¯·æ±‚
-    output reg [12:0] waddr_to_mem,     // è¾“å‡ºç»™ä¸‹å±‚å†…å­˜æ¨¡å—çš„å†™åœ°å€
-    output reg [ 7:0] wdata_to_mem      // è¾“å‡ºç»™ä¸‹å±‚å†…å­˜æ¨¡å—çš„å†™æ•°æ®
+    // ´ÓCPUÀ´µÄ·ÃÎÊĞÅºÅ
+    input wire [12:0] addr_from_cpu,    // CPUíµÄµØÖ·
+    input wire        rreq_from_cpu,    // CPUÀ´µÄ¶ÁÇëÇó
+    input wire        wreq_from_cpu,    // CPUÀ´µÄĞ´ÇëÇó
+    input wire [ 7:0] wdata_from_cpu,   // CPUÀ´µÄĞ´Êı¾İ
+    // ´ÓÏÂ²ãÄÚ´æÄ£¿éÀ´µÄĞÅºÅ
+    input wire [31:0] rdata_from_mem,   // ÄÚ´æ¶ÁÈ¡µÄÊı¾İ
+    input wire        rvalid_from_mem,  // ÄÚ´æ¶ÁÈ¡Êı¾İ¿ÉÓÃ±êÖ¾
+    // Êä³ö¸øCPUµÄĞÅºÅ
+    output wire [7:0] rdata_to_cpu,     // Êä³ö¸øCPUµÄÊı¾İ
+    output wire       hit_to_cpu,       // Êä³ö¸øCPUµÄÃüÖĞ±êÖ¾
+    // Êä³ö¸øÏÂ²ãÄÚ´æÄ£¿éµÄĞÅºÅ
+    output reg        rreq_to_mem,      // Êä³ö¸øÏÂ²ãÄÚ´æÄ£¿éµÄ¶ÁÇëÇó
+    output reg [12:0] raddr_to_mem,     // Êä³ö¸øÏÂ²ãÄ£¿éµÄÍ»·¢´«ÊäÊ×µØÖ·
+    output reg        wreq_to_mem,      // Êä³ö¸øÏÂ²ãÄÚ´æÄ£¿éµÄĞ´ÇëÇó
+    output reg [12:0] waddr_to_mem,     // Êä³ö¸øÏÂ²ãÄÚ´æÄ£¿éµÄĞ´µØÖ·
+    output reg [ 7:0] wdata_to_mem      // Êä³ö¸øÏÂ²ãÄÚ´æÄ£¿éµÄĞ´Êı¾İ
 );
 
 reg [3:0] current_state, next_state;
@@ -28,27 +28,27 @@ localparam READY     = 4'b0000,
            TAG_CHECK = 4'b0010,
            REFILL    = 4'b0001;
 
-wire        wea;                        // Cacheå†™ä½¿èƒ½ä¿¡å·
-wire [37:0] cache_line_r = /* TODO */   // å¾…å†™å…¥Cacheçš„Cacheè¡Œæ•°æ®
-wire [37:0] cache_line;                 // ä»Cacheä¸­è¯»å‡ºçš„Cacheè¡Œæ•°æ®
+wire        wea;                                // CacheĞ´Ê¹ÄÜĞÅºÅ
+wire [37:0] cache_line_r   = {1'b1, addr_from_cpu[12:8], rdata_from_mem}; /* TODO */         // ´ıĞ´ÈëCacheµÄCacheĞĞÊı¾İ
+wire [37:0] cache_line;                         // ´ÓCacheÖĞ¶Á³öµÄCacheĞĞÊı¾İ
 
-wire [ 5:0] cache_index    = /* TODO */         // ä¸»å­˜åœ°å€ä¸­çš„Cacheç´¢å¼•/Cacheåœ°å€
-wire [ 4:0] tag_from_cpu   = /* TODO */         // ä¸»å­˜åœ°å€çš„Tag
-wire [ 1:0] offset         = /* TODO */         // Cacheè¡Œå†…çš„å­—èŠ‚åç§»
-wire        valid_bit      = /* TODO */         // Cacheè¡Œçš„æœ‰æ•ˆä½
-wire [ 4:0] tag_from_cache = /* TODO */         // Cacheè¡Œçš„Tag
+wire [ 5:0] cache_index    = addr_from_cpu[7:2];  /* TODO */         // Ö÷´æµØÖ·ÖĞµÄCacheË÷Òı/CacheµØÖ·
+wire [ 4:0] tag_from_cpu   = addr_from_cpu[12:8]; /* TODO */         // Ö÷´æµØÖ·µÄTag
+wire [ 1:0] offset         = addr_from_cpu[1:0];  /* TODO */         // CacheĞĞÄÚµÄ×Ö½ÚÆ«ÒÆ
+wire        valid_bit      = cache_line[37];      /* TODO */         // CacheĞĞµÄÓĞĞ§Î»
+wire [ 4:0] tag_from_cache = cache_line[36:32];   /* TODO */         // CacheĞĞµÄTag
 
-wire hit  = /* TODO */ && /* TODO */ && /* TODO */;
+wire hit  = (tag_from_cache==tag_from_cpu) && valid_bit && (current_state==TAG_CHECK);  /* Todo */
 wire miss = (tag_from_cache != tag_from_cpu) | (~valid_bit);
 
-// æ ¹æ®Cacheè¡Œçš„å­—èŠ‚åç§»ï¼Œä»Cacheå—ä¸­é€‰å–CPUæ‰€éœ€çš„å­—èŠ‚æ•°æ®
+// ¸ù¾İCacheĞĞµÄ×Ö½ÚÆ«ÒÆ£¬´ÓCache¿éÖĞÑ¡È¡CPUËùĞèµÄ×Ö½ÚÊı¾İ
 assign rdata_to_cpu = (offset == 2'b00) ? cache_line[7:0] :
                       (offset == 2'b01) ? cache_line[15:8] :
                       (offset == 2'b10) ? cache_line[23:16] : cache_line[31:24];
 
 assign hit_to_cpu = hit;
 
-// ä½¿ç”¨Block RAM IPæ ¸ä½œä¸ºCacheçš„ç‰©ç†å­˜å‚¨ä½“
+// Ê¹ÓÃBlock RAM IPºË×÷ÎªCacheµÄÎïÀí´æ´¢Ìå
 blk_mem_gen_0 u_cache (
     .clka   (clk         ),
     .wea    (wea         ),
@@ -66,28 +66,28 @@ always @(posedge clk) begin
     end
 end
 
-// æ ¹æ®æŒ‡å¯¼ä¹¦/PPTçš„çŠ¶æ€è½¬æ¢å›¾ï¼Œå®ç°æ§åˆ¶Cacheè¯»å–çš„çŠ¶æ€è½¬ç§»
+// ¸ù¾İÖ¸µ¼Êé/PPTµÄ×´Ì¬×ª»»Í¼£¬ÊµÏÖ¿ØÖÆCache¶ÁÈ¡µÄ×´Ì¬×ªÒÆ
 always @(*) begin
     case(current_state)
         READY: begin
-            if (/* TODO */) begin
-                next_state = /* TODO */;
+            if (rreq_from_cpu) begin        /* Todo */
+                next_state = TAG_CHECK;     /* Todo */
             end else begin
-                next_state = /* TODO */;
+                next_state = READY;         /* Todo */
             end
         end
         TAG_CHECK: begin
-            if (/* TODO */) begin
-                next_state = /* TODO */;
+            if (miss) begin  // miss        /* Todo */
+                next_state = REFILL;        /* Todo */
             end else begin
-                next_state = /* TODO */;
+                next_state = READY;         /* Todo */
             end
         end
         REFILL: begin
-            if (/* TODO */) begin
-                next_state = /* TODO */;
+            if (rvalid_from_mem) begin      /* Todo */
+                next_state = TAG_CHECK;     /* Todo */
             end else begin 
-                next_state = /* TODO */;
+                next_state = REFILL;        /* Todo */
             end
         end
         default: begin
@@ -96,10 +96,10 @@ always @(*) begin
     endcase
 end
 
-// ç”ŸæˆBlock RAMçš„å†™ä½¿èƒ½ä¿¡å·
-assign wea = (current_state == /* TODO */) && /* TODO */;
+// Éú³ÉBlock RAMµÄĞ´Ê¹ÄÜĞÅºÅ
+assign wea = (current_state == REFILL) && rreq_from_cpu; //! ? tag check | rreq_from_cpu  /* Todo */
 
-// ç”Ÿæˆè¯»å–ä¸»å­˜æ‰€éœ€çš„ä¿¡å·ï¼Œå³è¯»è¯·æ±‚ä¿¡å·rreq_to_memå’Œè¯»åœ°å€ä¿¡å·raddr_to_mem
+// Éú³É¶ÁÈ¡Ö÷´æËùĞèµÄĞÅºÅ£¬¼´¶ÁÇëÇóĞÅºÅrreq_to_memºÍ¶ÁµØÖ·ĞÅºÅraddr_to_mem
 always @(posedge clk) begin
     if (reset) begin
         raddr_to_mem <= 0;
@@ -107,16 +107,16 @@ always @(posedge clk) begin
     end else begin
         case (next_state)
             READY: begin
-                raddr_to_mem <= /* TODO */
-                rreq_to_mem  <= /* TODO */
+                raddr_to_mem <=  0;              /* TODO */
+                rreq_to_mem  <=  0;              /* TODO */
             end
             TAG_CHECK: begin
-                raddr_to_mem <= /* TODO */
-                rreq_to_mem  <= /* TODO */
+                raddr_to_mem <=  0;              /* TODO */
+                rreq_to_mem  <=  0;              /* TODO */
             end
             REFILL: begin
-                raddr_to_mem <= /* TODO */
-                rreq_to_mem  <= /* TODO */
+                raddr_to_mem <=  addr_from_cpu;   /* TODO */
+                rreq_to_mem  <=  rreq_from_cpu;   /* TODO */
             end
             default: begin
                 raddr_to_mem <= 0;
@@ -126,9 +126,37 @@ always @(posedge clk) begin
     end
 end
 
-
-
-// å†™å‘½ä¸­å¤„ç†ï¼ˆå†™ç›´è¾¾æ³•ï¼‰ï¼šå†™å‘½ä¸­æ—¶ï¼Œæ—¢è¦æ›´æ–°Cacheå—ï¼Œä¹Ÿè¦æ›´æ–°å†…å­˜æ•°æ®
+// Ğ´ÃüÖĞ´¦Àí£¨Ğ´Ö±´ï·¨£©£ºĞ´ÃüÖĞÊ±£¬¼ÈÒª¸üĞÂCache¿é£¬Ò²Òª¸üĞÂÄÚ´æÊı¾İ
 /* TODO */
+always @(posedge clk) begin
+    if (reset) begin
+        wreq_to_mem <= 0;
+        waddr_to_mem <= 0;
+        wdata_to_mem <= 0;
+    end else begin
+        case (next_state)
+            READY: begin
+                wreq_to_mem  <= 0;
+                waddr_to_mem <= 0;
+                wdata_to_mem <= 0;
+            end
+            TAG_CHECK: begin
+                wreq_to_mem  <= 0;
+                waddr_to_mem <= 0;
+                wdata_to_mem <= 0;
+            end
+            REFILL: begin
+                wreq_to_mem  <= wreq_from_cpu;
+                waddr_to_mem <= addr_from_cpu;
+                wdata_to_mem <= wdata_from_cpu;
+            end
+            default: begin
+                wreq_to_mem  <= 0;
+                waddr_to_mem <= 0;
+                wdata_to_mem <= 0;
+            end
+        endcase
+    end
+end
 
 endmodule
