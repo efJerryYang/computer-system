@@ -2,10 +2,10 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun May 15 09:57:38 2022
-# Process ID: 13060
+# Start of session at: Mon May 16 09:07:58 2022
+# Process ID: 17740
 # Current directory: D:/Projects/GitHub/computer-system/comp-organ/lab4/cache
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent992 D:\Projects\GitHub\computer-system\comp-organ\lab4\cache\cache.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21088 D:\Projects\GitHub\computer-system\comp-organ\lab4\cache\cache.xpr
 # Log file: D:/Projects/GitHub/computer-system/comp-organ/lab4/cache/vivado.log
 # Journal file: D:/Projects/GitHub/computer-system/comp-organ/lab4/cache\vivado.jou
 #-----------------------------------------------------------
@@ -16,7 +16,7 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/ProgLangToolkit/Xilinx/Vivado/2018.3/data/ip'.
-open_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:09 . Memory (MB): peak = 818.355 ; gain = 172.566
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:07 . Memory (MB): peak = 792.062 ; gain = 124.695
 update_compile_order -fileset sources_1
 launch_simulation
 INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
@@ -72,16 +72,7 @@ Compiling module xil_defaultlib.driver
 Compiling module xil_defaultlib.testbench
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot testbench_behav
-
-****** Webtalk v2018.3 (64-bit)
-  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
-  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
-
-source D:/Projects/GitHub/computer-system/comp-organ/lab4/cache/cache.sim/sim_1/behav/xsim/xsim.dir/testbench_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Sun May 15 09:59:15 2022...
-run_program: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 818.469 ; gain = 0.000
-INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'D:/Projects/GitHub/computer-system/comp-organ/lab4/cache/cache.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
@@ -87771,11 +87762,11 @@ Cache读命中!
 Cache已取回数据255
 =======================Cache写测试全部通过=========================
 ========================所有测试全部通过！==========================
+xsim: Time (s): cpu = 00:00:12 ; elapsed = 00:00:05 . Memory (MB): peak = 937.543 ; gain = 111.793
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 10ms
-launch_simulation: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 904.379 ; gain = 85.910
+launch_simulation: Time (s): cpu = 00:00:14 ; elapsed = 00:00:10 . Memory (MB): peak = 938.188 ; gain = 138.691
 close_sim
 INFO: [Simtcl 6-16] Simulation closed
-close_sim: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 998.078 ; gain = 0.527
 exit
-INFO: [Common 17-206] Exiting Vivado at Sun May 15 11:37:53 2022...
+INFO: [Common 17-206] Exiting Vivado at Mon May 16 09:08:53 2022...
