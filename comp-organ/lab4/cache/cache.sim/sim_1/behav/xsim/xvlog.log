@@ -6,3 +6,9 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/GitHub/computer-system/
 INFO: [VRFC 10-311] analyzing module cache
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/GitHub/computer-system/comp-organ/lab4/cache/mem_wrap.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module mem_wrap
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Projects/GitHub/computer-system/comp-organ/lab4/cache/driver.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module driver
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/GitHub/computer-system/comp-organ/lab4/cache/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Projects/GitHub/computer-system/comp-organ/lab4/cache/cache.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
