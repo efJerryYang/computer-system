@@ -99,7 +99,7 @@ always @(*) begin // 处理 light
                     cnt_second == 3 ? 4'b0000: 4'b1111;
         end
         STATE3: begin
-            light = cnt_second == 0 ? 4'b1111: // 根据要求修改
+            light = cnt_second == 0 ? 4'b1111:
                     cnt_second == 1 ? 4'b0000:
                     cnt_second == 2 ? 4'b1111:
                     cnt_second == 3 ? 4'b0000: 4'b0000;
