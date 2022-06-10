@@ -6,7 +6,7 @@ module crossing (
 );
 
 parameter CNT_MAX = 1_0000_0000; // 具体是多少我记不得了，就是这么多个周期凑够1s
-localparam  STATE0 = 4'b0000,
+localparam  STATE0 = 4'b0000,    // STATE0 和 STATE1 在这里没有太大区别，处理的基本是同一状态
             STATE1 = 4'b0001,
             STATE2 = 4'b0010,
             STATE3 = 4'b0100,
@@ -19,7 +19,7 @@ localparam  GREEN  = 3'b001,
 wire rst_n = ~rst;
 
 reg [31:0] cnt;          // 若是上面的 CNT_MAX 改了相应的计数器宽度也要改
-reg [33:0] cnt_second;
+reg [3:0] cnt_second;    // 数秒
 reg [3:0] state;         // 状态
 
 
@@ -41,7 +41,7 @@ always @(posedge clk, negedge rst_n) begin // cnt
     end
 end
 
-always @(posedge clk, negedge rst_n) begin // 组合逻辑用来写状态机的状态跳转
+always @(posedge clk, negedge rst_n) begin // 时序逻辑用来写状态机的状态跳转
     if(~rst_n) begin
         state <= STATE0;
         cnt_second <= 0;
