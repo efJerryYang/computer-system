@@ -5,7 +5,7 @@ module crossing (
 );
 
 parameter CNT_MAX = 1_0000_0000; // 具体是多少我记不得了，就是这么多个周期凑够1s
-localparam  STATE0 = 3'b000,
+localparam  STATE0 = 3'b000,  // STATE0 可以删掉，不用button的话用不着
             STATE1 = 3'b001,
             STATE2 = 3'b010,
             STATE3 = 3'b100;
@@ -43,33 +43,19 @@ always @(posedge clk, negedge rst_n) begin // 时序逻辑用来写状态机的�
     if(~rst_n) begin
         state <= STATE0;
     end 
-    else if (cnt == CNT_MAX) begin
+    else if (cnt == CNT_MAX && cnt_second == 3) begin
         case (state)
-            STATE0: if(cnt_second == 3) begin // 计时部分移动到上面的计时模块里面了
-                state <= STATE2;
-            end else begin
-                state <= state;
-            end
-            STATE1: if(cnt_second == 3) begin
-                state <= STATE2;
-            end else begin
-                state <= state;
-            end
-            STATE2: if (cnt_second == 3) begin
-                state <= STATE3;
-            end else begin
-                state <= state;
-            end
-            STATE3: if (cnt_second == 3) begin
-                state <= STATE1;
-            end else begin
-                state <= state;
-            end
-            default: begin
-                state <= state;
-            end
+            STATE0:  state <= STATE2;
+            STATE1:  state <= STATE2;
+            STATE2:  state <= STATE3;
+            STATE3:  state <= STATE1;
+            default: state <= state;
         endcase
     end
+    else begin
+        state <= state;
+    end
+
 end
 
 always @(*) begin // 处理 light
